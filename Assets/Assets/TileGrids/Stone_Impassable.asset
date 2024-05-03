@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Sprite-0006_0
+  m_Name: Stone_Impassable
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -733932670596280025, guid: fb62a7f8dffd60040a5dbd2beab2d771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
