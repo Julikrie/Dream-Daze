@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TileSelector : MonoBehaviour
 {
+    public static TileSelector Instance { get; private set; }
     public Camera mainCamera;
     public GameObject indicatorPrefab;
-    public GridManager gridManager;
     private GameObject selector;
 
     public MovementController movementController;
@@ -13,26 +13,40 @@ public class TileSelector : MonoBehaviour
     GridCell startCell = null;
     GridCell endCell = null;
     List<GameObject> pathMarkers = new List<GameObject>();
+    List<GameObject> rangeMarkers = new List<GameObject>();
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)); // Adjust z based on your camera setup
-            var gridPosition = gridManager.GetGridFromWorldPosition(mouseWorldPosition); // Convert world position to grid position
-            if (gridManager.GetGridCell(gridPosition) != null) // Ensure this is a valid position
+            Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+
+            var gridPosition = GridManager.Instance.GetGridFromWorldPosition(mouseWorldPosition);
+            if (GridManager.Instance.GetGridCell(gridPosition) != null)
             {
                 movementController.MoveTo((Vector3Int)gridPosition);
             }
-        }
+            //clearRangeMarkers();
+        }*/
 
 
     }
 
-
     public GridCell HighlightIndicator(Vector3 worldPosition)
     {
-        GridCell gridCell = gridManager.GetGridCell(worldPosition);
+        GridCell gridCell = GridManager.Instance.GetGridCell(worldPosition);
         if (gridCell != null)
         {
 
@@ -40,7 +54,7 @@ public class TileSelector : MonoBehaviour
             {
                 Destroy(selector);
             }
-            selector = Instantiate(indicatorPrefab, gridManager.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
+            selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
             Debug.Log("Current cell(" + gridCell.position + ") is walkable:" + gridCell.isWalkable + ", has movement cost of " + gridCell.movementCost + " and is currently occupied:" + gridCell.occupant);
             return gridCell;
         }
@@ -48,11 +62,11 @@ public class TileSelector : MonoBehaviour
     }
     public void TestPathFinding(Vector3 worldPosition)
     {
-        GridCell gridCell = gridManager.GetGridCell(worldPosition);
+        GridCell gridCell = GridManager.Instance.GetGridCell(worldPosition);
 
         if (startCell == null)
         {
-            if (gridManager.IsWalkable(gridCell))
+            if (GridManager.Instance.IsWalkable(gridCell))
             {
                 startCell = gridCell;
                 Debug.Log("Start position set!");
@@ -60,7 +74,7 @@ public class TileSelector : MonoBehaviour
         }
         else if (endCell == null)
         {
-            if (gridManager.IsWalkable(gridCell))
+            if (GridManager.Instance.IsWalkable(gridCell))
             {
                 endCell = gridCell;
                 Debug.Log("End position set! Calculating path...");
@@ -82,7 +96,7 @@ public class TileSelector : MonoBehaviour
     {
         foreach (var gridCell in path)
         {
-            GameObject pathMarker = Instantiate(indicatorPrefab, gridManager.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
+            GameObject pathMarker = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
             pathMarkers.Add(pathMarker);
         }
     }
@@ -95,7 +109,48 @@ public class TileSelector : MonoBehaviour
         }
         pathMarkers.Clear();
     }
+    // Displays the range Characters are allowed to walk
+    public List<GridCell> HighlightMovementRange(Vector3 startPosition, int movementRange)
+    {
+        var startCell = GridManager.Instance.GetGridCell(startPosition);
+        Vector2Int position = startCell.position;
+        var gridCells = new List<GridCell>();
+        for (int x = -movementRange; x <= movementRange; x++)
+        {
+            for (int y = -movementRange; y <= movementRange; y++)
+            {
+                if (Mathf.Abs(x) + Mathf.Abs(y) <= movementRange)
+                {
+                    Vector2Int tilePosition = new Vector2Int(position.x + x, position.y + y);
+                    var currentCell = GridManager.Instance.GetGridCell(new Vector3(tilePosition.x, tilePosition.y, 0));
+                    if (Vector2Int.Distance(position, tilePosition) <= movementRange && GridManager.Instance.IsWalkable(currentCell))
+                    {
+                        GameObject cell = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(new Vector2Int(tilePosition.x, tilePosition.y)) + Vector3.back, Quaternion.identity);
+                        gridCells.Add(GridManager.Instance.GetGridCell(new Vector3(x, y, 0)));
+                        rangeMarkers.Add(cell);
+                    }
+                }
 
+            }
+        }
+        Debug.Log(gridCells.Count);
+        return gridCells;
+    }
+
+    // clear highlighted fields
+    public void clearRangeMarkers()
+    {
+        foreach (GameObject marker in rangeMarkers)
+        {
+            Destroy(marker);
+        }
+        rangeMarkers.Clear();
+    }
 }
+
+
+
+
+
 
 

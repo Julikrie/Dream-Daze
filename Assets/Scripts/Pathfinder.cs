@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    public GridManager gridManager;
-
-    public List<GridCell> FindPath(GridCell startCell, GridCell targetCell)
+     public List<GridCell> FindPath(GridCell startCell, GridCell targetCell)
     {
         List<GridCell> openSet = new List<GridCell>();
         HashSet<GridCell> closedSet = new HashSet<GridCell>();
@@ -33,7 +31,7 @@ public class Pathfinder : MonoBehaviour
                 return RetracePath(startCell, targetCell);
             }
 
-            foreach (GridCell neighbor in gridManager.GetNeighbors(currentCell))
+            foreach (GridCell neighbor in GridManager.Instance.GetNeighbors(currentCell))
             {
                 if (!neighbor.isWalkable || closedSet.Contains(neighbor))
                     continue;
@@ -80,7 +78,7 @@ public class Pathfinder : MonoBehaviour
 
     public void ResetPathfindingData()
     {
-        foreach (var cell in gridManager.grid.Values)  // Assuming 'grid' is accessible like this
+        foreach (var cell in GridManager.Instance.grid.Values)  // Assuming 'grid' is accessible like this
         {
             cell.gCost = int.MaxValue;
             cell.parent = null;

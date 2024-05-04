@@ -4,31 +4,24 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
 
-    public GridManager gridManager;
     public Pathfinder pathfinder;
     private Queue<Vector3> pathPoints = new Queue<Vector3>();
 
     void Update()
     {
-        // Only trigger movement on a specific condition (like a key press or mouse click)
-        // Here's how you might handle it with a key press:
-        if (Input.GetKeyDown(KeyCode.M) && pathPoints.Count == 0)  // Example: Press 'M' to move
-        {
-            MoveTo(new Vector3Int(-8, 0, -1));  // Only call this once per key press
-        }
-
-        // Always call MoveAlongPath to continue moving along the current path
         MoveAlongPath();
     }
 
-    public void MoveTo(Vector3Int targetGridPosition)
+    public void MoveTo(Vector3Int targetGridPosition, List<GridCell> allowedCells)
     {
-        if (pathPoints.Count == 0) // Check if there's already a path being followed
+        // Check if Path is already followed
+        if (pathPoints.Count == 0)
         {
-            GridCell startCell = gridManager.GetGridCell(transform.position);
-            GridCell targetCell = gridManager.GetGridCell(targetGridPosition);
+            GridCell startCell = GridManager.Instance.GetGridCell(transform.position);
+            GridCell targetCell = GridManager.Instance.GetGridCell(targetGridPosition);
 
-            if (startCell != null && targetCell != null) // Make sure the cells are valid
+            // Make sure the cells are valid
+            if (startCell != null && targetCell != null && allowedCells.Contains(targetCell))
             {
                 Debug.Log($"Attempting to move from {startCell.position} (Walkable: {startCell.isWalkable}) to {targetCell.position} (Walkable: {targetCell.isWalkable})");
 
@@ -50,11 +43,11 @@ public class MovementController : MonoBehaviour
         pathPoints.Clear();
         foreach (var cell in path)
         {
-            Vector3 worldPos = gridManager.GetWorldFromCellPosition(cell);
+            Vector3 worldPos = GridManager.Instance.GetWorldFromCellPosition(cell);
             Debug.Log($"Adding path point at world position: {worldPos}");
             pathPoints.Enqueue(worldPos);
         }
-        MoveAlongPath();  // Start moving immediately
+        MoveAlongPath();
     }
 
 

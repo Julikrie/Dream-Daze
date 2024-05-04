@@ -5,13 +5,25 @@ using UnityEngine.Tilemaps;
 
 public class GridManager : MonoBehaviour
 {
+    public static GridManager Instance { get; private set; }
     public Tilemap tileMap;
     public TileAttributesManager tileAttributesManager;
 
     // Dictionary with int Vector as key, cell information X,Y as value
     public Dictionary<Vector2Int, GridCell> grid;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    void Start ()
     {
         grid = new Dictionary<Vector2Int, GridCell>();
         generateGrid();

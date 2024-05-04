@@ -9,9 +9,11 @@ public class GridCell
     public bool isWalkable;
     public int movementCost;
 
-
-    public int gCost = int.MaxValue;
+    // Cost of the path to Grid Cell
+    public int gCost;
+    // Estimated Cost of target destination
     public int hCost;
+    // Sum of gCost + hCost
     public int fCost { get { return gCost + hCost; } }
     public GridCell parent;
 
