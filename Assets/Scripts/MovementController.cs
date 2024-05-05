@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-
-    public Pathfinder pathfinder;
     private Queue<Vector3> pathPoints = new Queue<Vector3>();
 
     void Update()
@@ -12,7 +10,7 @@ public class MovementController : MonoBehaviour
         MoveAlongPath();
     }
 
-    public void MoveTo(Vector3Int targetGridPosition, List<GridCell> allowedCells)
+    public void MoveTo(Vector2Int targetGridPosition)
     {
         // Check if Path is already followed
         if (pathPoints.Count == 0)
@@ -21,22 +19,24 @@ public class MovementController : MonoBehaviour
             GridCell targetCell = GridManager.Instance.GetGridCell(targetGridPosition);
 
             // Make sure the cells are valid
-            if (startCell != null && targetCell != null && allowedCells.Contains(targetCell))
+            if (startCell != null && targetCell != null)
             {
                 Debug.Log($"Attempting to move from {startCell.position} (Walkable: {startCell.isWalkable}) to {targetCell.position} (Walkable: {targetCell.isWalkable})");
 
-                List<GridCell> path = pathfinder.FindPath(startCell, targetCell);
+                List<GridCell> path = Pathfinder.Instance.FindPath(startCell, targetCell);
                 Debug.Log($"Path length: {path.Count}");
                 if (path.Count > 0)
                 {
                     SetPath(path);
                 }
+                // Looking if someone is on the Cell
+                // Move Object from start Cell to target Cell
+                startCell.occupant = null;
+                targetCell.occupant = gameObject;
             }
         }
     }
-
-
-
+    // Setting Path 
     private void SetPath(List<GridCell> path)
     {
         Debug.Log($"Setting path with {path.Count} points.");
@@ -50,19 +50,19 @@ public class MovementController : MonoBehaviour
         MoveAlongPath();
     }
 
-
+    // Walking the Path
     private void MoveAlongPath()
-    {
+    {   // As long as there are Tiles to walk, walk to the next Tile
         if (pathPoints.Count > 0)
-        {
+        { // Look at next Tile
             Vector3 targetPosition = pathPoints.Peek();
             if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-            {
+            {   // Move to next Tile
                 Vector3 moveDirection = (targetPosition - transform.position).normalized;
                 transform.position += moveDirection * 5 * Time.deltaTime;
             }
             else
-            {
+            {   // When close enough set to exact position 
                 transform.position = targetPosition;
                 pathPoints.Dequeue();
                 Debug.Log($"Reached {targetPosition}, remaining points: {pathPoints.Count}");

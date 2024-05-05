@@ -14,7 +14,7 @@ public class TileAttributesManager : MonoBehaviour
         mapping = new Dictionary<TileType, TileAttributes>
         {
             {TileType.Walkable, new TileAttributes(true, 1)},
-            {TileType.Difficult, new TileAttributes(true, 5)},
+            {TileType.Difficult, new TileAttributes(true, 2)},
             {TileType.Impassable, new TileAttributes(false, 0)}
         };
     }

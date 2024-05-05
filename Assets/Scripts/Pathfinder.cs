@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
+    public static Pathfinder Instance {get; private set;}
+    private void Awake()
+    {   // Destroy Pathfinder GameObjects if there is already one, otherwise create it
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
      public List<GridCell> FindPath(GridCell startCell, GridCell targetCell)
     {
         List<GridCell> openSet = new List<GridCell>();
@@ -52,6 +64,35 @@ public class Pathfinder : MonoBehaviour
         }
         Debug.Log("bin hier");
         return new List<GridCell>(); // Return an empty path if there's no way to reach the target
+    }
+
+    // Look at every Cell the Character can walk and provide them
+    public List<GridCell> GetReachableCells(GridCell startCell, int maxRange)
+    {
+        Queue<GridCell> queue = new Queue<GridCell>();
+        Dictionary<GridCell, int> costSoFar = new Dictionary<GridCell, int>();
+        queue.Enqueue(startCell);
+        costSoFar[startCell] = 0;
+        List<GridCell> reachableCells = new List<GridCell>();
+        while (queue.Count > 0)
+        {
+            GridCell current = queue.Dequeue();
+            foreach (GridCell neighbor in GridManager.Instance.GetNeighbors(current))
+            {
+                if (!GridManager.Instance.IsWalkable(neighbor))
+                    continue;
+                int newCost = costSoFar[current] + neighbor.movementCost;
+                if (newCost > maxRange)  // Stop expanding if max range is exceeded
+                    continue;
+                if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
+                {
+                    costSoFar[neighbor] = newCost;
+                    queue.Enqueue(neighbor);
+                    reachableCells.Add(neighbor);  // Add this cell as reachable
+                }
+            }
+        }
+        return reachableCells;
     }
 
     private List<GridCell> RetracePath(GridCell startCell, GridCell endCell)

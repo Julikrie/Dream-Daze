@@ -1,22 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementStateMachine : MonoBehaviour
+public class MovementStateMachine
 {
-    public Camera mainCamera;
     private MovementState currentState;
     // Cells I'm allowed to move in 
     private List<GridCell> allowedCells;
+    private Character character;
+    private MovementController movementController;
+    private bool isEnabled;
+    public event Action Finished;
 
-    private bool showSelection;
-    public void Start()
+    public MovementStateMachine(Character character, MovementController movementController)
     {
+        this.character = character;
+        this.movementController = movementController;
+        isEnabled = true;
         currentState = MovementState.Selection;
-        showSelection = true;
         allowedCells = new List<GridCell>();
     }
-
     public void ChangeState(MovementState state)
     {
         currentState = state;
@@ -24,42 +28,41 @@ public class MovementStateMachine : MonoBehaviour
 
     public void Update()
     {
-        switch (currentState)
+        if (isEnabled)
         {
-            case MovementState.Selection:
-                if (showSelection)
-                {
-                    allowedCells = TileSelector.Instance.HighlightMovementRange(transform.position, 3);
-                    showSelection = false;  // Ensure this only happens once per entry into this state
-                }
 
-                // Wait for a user input to change state, should not automatically transition to Movement state.
-                if (Input.GetMouseButtonDown(0))
-                {
+        
+            switch (currentState)
+            {
+                case MovementState.Selection:
+                    allowedCells = TileSelector.Instance.HighlightMovementRange(character.transform.position, character.movementRange);
                     ChangeState(MovementState.Movement);
-                }
-                break;
+                    break;
 
-            case MovementState.Movement:
-                if (Input.GetMouseButtonDown(0))
-                {
-                    TileSelector.Instance.clearRangeMarkers();
-                    Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
-                    var gridPosition = GridManager.Instance.GetGridFromWorldPosition(mouseWorldPosition);
-                    if (GridManager.Instance.GetGridCell(gridPosition) != null)
+                case MovementState.Movement:
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        Debug.Log(allowedCells.Count);
-                        GetComponent<MovementController>().MoveTo((Vector3Int)gridPosition, allowedCells);
+                        GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
+                        if(gridCell != null && allowedCells.Contains(gridCell))
+                        {
+                            TileSelector.Instance.clearRangeMarkers();
+                            movementController.MoveTo(gridCell.position);
+                            ChangeState(MovementState.Finished);
+                        }
                     }
-                    ChangeState(MovementState.Finished);
-                }
-                break;
+                    break;
 
-            case MovementState.Finished:
-                    showSelection = true;
+                case MovementState.Finished:
+                    Finished.Invoke();
                     ChangeState(MovementState.Selection);
-
+                        
                 break;
+            }
         }
     }
+    public void Enable(bool isEnabled)
+    {
+        this.isEnabled = isEnabled;
+    }
+
 }

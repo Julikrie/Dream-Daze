@@ -8,6 +8,7 @@ public class GridManager : MonoBehaviour
     public static GridManager Instance { get; private set; }
     public Tilemap tileMap;
     public TileAttributesManager tileAttributesManager;
+    public Camera mainCamera;
 
     // Dictionary with int Vector as key, cell information X,Y as value
     public Dictionary<Vector2Int, GridCell> grid;
@@ -23,7 +24,7 @@ public class GridManager : MonoBehaviour
             Instance = this;
         }
     }
-    void Start ()
+    void Start()
     {
         grid = new Dictionary<Vector2Int, GridCell>();
         generateGrid();
@@ -73,6 +74,12 @@ public class GridManager : MonoBehaviour
         return null;
     }
 
+    // Get mouse position directly
+    public GridCell GetGridCellFromMousePosition()
+    {
+        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        return GetGridCell(mouseWorldPosition);
+    }
 
     public Vector3 GetWorldFromCellPosition(Vector2Int cellPosition)
     {
