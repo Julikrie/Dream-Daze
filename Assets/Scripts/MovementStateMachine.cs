@@ -17,6 +17,7 @@ public class MovementStateMachine
     {
         this.character = character;
         this.movementController = movementController;
+        // Is player turn active?
         isEnabled = true;
         currentState = MovementState.Selection;
         allowedCells = new List<GridCell>();
@@ -29,11 +30,10 @@ public class MovementStateMachine
     public void Update()
     {
         if (isEnabled)
-        {
-
-        
+        { 
             switch (currentState)
             {
+                // Highlights the moveable areas
                 case MovementState.Selection:
                     allowedCells = TileSelector.Instance.HighlightMovementRange(character.transform.position, character.movementRange);
                     ChangeState(MovementState.Movement);

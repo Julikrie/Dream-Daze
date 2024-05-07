@@ -12,7 +12,7 @@ public class TileAttributesManager : MonoBehaviour
     private void Awake()
     {   // Set Attributes for each Tile Type
         mapping = new Dictionary<TileType, TileAttributes>
-        {
+        {  // Walkable? & cost of move action
             {TileType.Walkable, new TileAttributes(true, 1)},
             {TileType.Difficult, new TileAttributes(true, 2)},
             {TileType.Impassable, new TileAttributes(false, 0)}

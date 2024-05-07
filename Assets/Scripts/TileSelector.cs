@@ -40,6 +40,7 @@ public class TileSelector : MonoBehaviour
         }
         return null;
     }
+    // Highlights Characters movement range
     public List<GridCell> HighlightMovementRange(Vector3 startPosition, int movementRange)
     {
         var startCell = GridManager.Instance.GetGridCell(startPosition);

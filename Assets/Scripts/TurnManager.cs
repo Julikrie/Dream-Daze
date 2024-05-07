@@ -6,6 +6,8 @@ public class TurnManager : MonoBehaviour
 {
     public List<Character> characters;
     private int currentCharacterIndex;
+
+    // Set next Character active if turn finished
     void Start()
     {
         foreach (Character character in characters) 

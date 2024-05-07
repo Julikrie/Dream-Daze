@@ -12,7 +12,6 @@ public class GridManager : MonoBehaviour
 
     // Dictionary with int Vector as key, cell information X,Y as value
     public Dictionary<Vector2Int, GridCell> grid;
-    // Start is called before the first frame update
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,7 +29,7 @@ public class GridManager : MonoBehaviour
         generateGrid();
     }
 
-    // Grid vom Spielfeld generieren
+    // Generate Grid for game field 
     void generateGrid()
     {
         for (int x = tileMap.cellBounds.min.x; x < tileMap.cellBounds.max.x; x++)
@@ -123,6 +122,7 @@ public class GridManager : MonoBehaviour
         new Vector2Int(-1, 0)
         };
 
+        // Can move to Neighbor Cell if free and walkable
         foreach (Vector2Int direction in directions)
         {
             Vector2Int neighborPos = new Vector2Int(cell.position.x + direction.x, cell.position.y + direction.y);

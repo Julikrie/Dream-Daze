@@ -16,6 +16,7 @@ public class Pathfinder : MonoBehaviour
             Instance = this;
         }
     }
+    // A* Pathfinding algorithm
      public List<GridCell> FindPath(GridCell startCell, GridCell targetCell)
     {
         List<GridCell> openSet = new List<GridCell>();
@@ -37,7 +38,7 @@ public class Pathfinder : MonoBehaviour
 
             openSet.Remove(currentCell);
             closedSet.Add(currentCell);
-
+            // Explores Cells for shortest Way
             if (currentCell == targetCell)
             {
                 return RetracePath(startCell, targetCell);
@@ -62,8 +63,9 @@ public class Pathfinder : MonoBehaviour
                 }
             }
         }
+        // return empty Path if not reachable
         Debug.Log("bin hier");
-        return new List<GridCell>(); // Return an empty path if there's no way to reach the target
+        return new List<GridCell>();
     }
 
     // Look at every Cell the Character can walk and provide them
@@ -82,19 +84,19 @@ public class Pathfinder : MonoBehaviour
                 if (!GridManager.Instance.IsWalkable(neighbor))
                     continue;
                 int newCost = costSoFar[current] + neighbor.movementCost;
-                if (newCost > maxRange)  // Stop expanding if max range is exceeded
+                if (newCost > maxRange)  
                     continue;
                 if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
                 {
                     costSoFar[neighbor] = newCost;
                     queue.Enqueue(neighbor);
-                    reachableCells.Add(neighbor);  // Add this cell as reachable
+                    reachableCells.Add(neighbor); 
                 }
             }
         }
         return reachableCells;
     }
-
+    // Returns Cells representing Path
     private List<GridCell> RetracePath(GridCell startCell, GridCell endCell)
     {
         List<GridCell> path = new List<GridCell>();
@@ -119,11 +121,11 @@ public class Pathfinder : MonoBehaviour
 
     public void ResetPathfindingData()
     {
-        foreach (var cell in GridManager.Instance.grid.Values)  // Assuming 'grid' is accessible like this
+        foreach (var cell in GridManager.Instance.grid.Values)
         {
             cell.gCost = int.MaxValue;
             cell.parent = null;
-            cell.hCost = 0; // Reset hCost if it's not recalculated for each new path
+            cell.hCost = 0; 
         }
     }
 }
