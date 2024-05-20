@@ -37,6 +37,7 @@ public class AttackStateMachine
             {
                 case AttackState.Selection:
                     Debug.Log("Ich bin in der Attack-Selektion");
+                    Debug.Log(character.transform.position);    
                     attackableCells = TileSelector.Instance.HighlightAttackRange(character.transform.position, character.attackRange);
                     break;
                 case AttackState.Attack:

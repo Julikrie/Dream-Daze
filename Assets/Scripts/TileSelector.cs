@@ -58,9 +58,10 @@ public class TileSelector : MonoBehaviour
     public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
     {
         var startCell = GridManager.Instance.GetGridCell(startPosition);
-        var gridCells = Pathfinder.Instance.GetReachableCells(startCell, attackRange);
+        var gridCells = Pathfinder.Instance.GetAttackableCells(startCell, attackRange);
         foreach (var gridCell in gridCells)
         {
+            if(gridCell != null)
             {
                 GameObject cell = Instantiate(attackIndicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
                 rangeMarkers.Add(cell);

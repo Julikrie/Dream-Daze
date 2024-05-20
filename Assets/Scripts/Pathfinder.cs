@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 
 public class Pathfinder : MonoBehaviour
@@ -126,5 +127,22 @@ public class Pathfinder : MonoBehaviour
             cell.parent = null;
             cell.hCost = 0; 
         }
+    }
+    public List<GridCell> GetAttackableCells(GridCell startCell, int attackRange)
+    {
+        List<GridCell> attackableCells = new List<GridCell>();
+
+        for (int x = -attackRange; x <= attackRange; x++)
+        {
+            for (int y = -attackRange; y <= attackRange; y++)
+            {
+                if (Mathf.Abs(x) + Mathf.Abs(y) <= attackRange)
+                {
+                    GridCell currentCell = GridManager.Instance.GetGridCell(new Vector2(startCell.position.x + x, startCell.position.y + y));
+                    attackableCells.Add(currentCell);
+                }
+            }
+        }
+        return attackableCells;
     }
 }
