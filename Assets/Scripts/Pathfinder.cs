@@ -48,7 +48,6 @@ public class Pathfinder : MonoBehaviour
             {
                 if (!neighbor.isWalkable || closedSet.Contains(neighbor))
                     continue;
-                Debug.Log(neighbor);
                 int newMovementCostToNeighbor = currentCell.gCost + neighbor.movementCost;
                 if (newMovementCostToNeighbor < neighbor.gCost)
                 {

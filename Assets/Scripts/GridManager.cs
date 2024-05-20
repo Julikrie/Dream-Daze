@@ -41,10 +41,7 @@ public class GridManager : MonoBehaviour
                 {
                     Vector2Int currentCell = new Vector2Int(x, y);
                     // Adds each cell to the grid dictionary
-                    Debug.Log($"{tile.isWalkable}&{tile.movementCost}");
                     grid.Add(currentCell, new GridCell(currentCell, null, tile.isWalkable, tile.movementCost));
-                    Debug.DrawLine(new Vector2(x, y), new Vector2(x + 1, y), Color.red, 10000f);
-                    Debug.DrawLine(new Vector2(x, y), new Vector2(x, y + 1), Color.red, 10000f);
                 }
             }
         }
@@ -132,7 +129,6 @@ public class GridManager : MonoBehaviour
                 neighbors.Add(neighbor);
             }
         }
-        Debug.Log(neighbors.Count);
         return neighbors;
     }
 }

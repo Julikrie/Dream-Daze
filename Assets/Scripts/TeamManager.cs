@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TeamManager : MonoBehaviour
+{
+    public static TeamManager Instance { get; private set; }
+    public List<Character> playerTeam;
+    public List<Character> enemyTeam;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    public bool SameTeam(Character currentCharacter, Character otherCharacter)
+    {
+        if (playerTeam.Contains(currentCharacter) && playerTeam.Contains(otherCharacter))
+        {
+            return true;
+        }
+        if (enemyTeam.Contains(currentCharacter) && enemyTeam.Contains(otherCharacter))
+        {
+            return true;
+        }
+        return false;
+    }
+}

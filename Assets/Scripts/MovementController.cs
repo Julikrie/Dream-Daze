@@ -21,10 +21,8 @@ public class MovementController : MonoBehaviour
             // Make sure the cells are valid
             if (startCell != null && targetCell != null)
             {
-                Debug.Log($"Attempting to move from {startCell.position} (Walkable: {startCell.isWalkable}) to {targetCell.position} (Walkable: {targetCell.isWalkable})");
 
                 List<GridCell> path = Pathfinder.Instance.FindPath(startCell, targetCell);
-                Debug.Log($"Path length: {path.Count}");
                 if (path.Count > 0)
                 {
                     SetPath(path);
@@ -39,12 +37,10 @@ public class MovementController : MonoBehaviour
     // Setting Path 
     private void SetPath(List<GridCell> path)
     {
-        Debug.Log($"Setting path with {path.Count} points.");
         pathPoints.Clear();
         foreach (var cell in path)
         {
             Vector3 worldPos = GridManager.Instance.GetWorldFromCellPosition(cell);
-            Debug.Log($"Adding path point at world position: {worldPos}");
             pathPoints.Enqueue(worldPos);
         }
         MoveAlongPath();
@@ -65,7 +61,6 @@ public class MovementController : MonoBehaviour
             {   // When close enough set to exact position 
                 transform.position = targetPosition;
                 pathPoints.Dequeue();
-                Debug.Log($"Reached {targetPosition}, remaining points: {pathPoints.Count}");
             }
         }
     }

@@ -5,7 +5,7 @@ public class TileSelector : MonoBehaviour
 {
     private List<GameObject> rangeMarkers = new List<GameObject>();
     public static TileSelector Instance { get; private set; }
-    public GameObject indicatorPrefab;
+    public GameObject indicatorPrefab, attackIndicatorPrefab;
     private GameObject selector;
 
     private void Awake()
@@ -35,7 +35,6 @@ public class TileSelector : MonoBehaviour
                 Destroy(selector);
             }
             selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
-            Debug.Log("Current cell(" + gridCell.position + ") is walkable:" + gridCell.isWalkable + ", has movement cost of " + gridCell.movementCost + " and is currently occupied:" + gridCell.occupant);
             return gridCell;
         }
         return null;
@@ -55,6 +54,21 @@ public class TileSelector : MonoBehaviour
         }
         return gridCells;
     }
+
+    public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
+    {
+        var startCell = GridManager.Instance.GetGridCell(startPosition);
+        var gridCells = Pathfinder.Instance.GetReachableCells(startCell, attackRange);
+        foreach (var gridCell in gridCells)
+        {
+            {
+                GameObject cell = Instantiate(attackIndicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
+                rangeMarkers.Add(cell);
+            }
+        }
+        return gridCells;
+    }
+
     // clear highlighted Cells
     public void clearRangeMarkers()
     {

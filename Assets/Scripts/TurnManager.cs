@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     public List<Character> characters;
+    public ActionUIManager actionUIManager;
     private int currentCharacterIndex;
 
     // Set next Character active if turn finished
@@ -12,12 +13,13 @@ public class TurnManager : MonoBehaviour
     {
         foreach (Character character in characters) 
         {
-            character.movementStateMachine.Finished += movementFinished;
+            character.characterStateMachine.Finished += characterFinished;
         }
+        Debug.Log("Ich bin " + currentCharacterIndex);
         currentCharacterIndex = 0;
         setActiveCharacter(currentCharacterIndex); 
     }
-    private void movementFinished()
+    private void characterFinished()
     {
         NextTurn();
     }
@@ -25,13 +27,15 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].ToggleMovement(false);
+            characters[i].ToggleCharacter(false);
         }
-        characters[index].ToggleMovement(true);
+        characters[index].ToggleCharacter(true);
+        actionUIManager.SetCharacter(characters[index]);
     }
     public void NextTurn()
     {
         currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
+        Debug.Log("Ich bin " + currentCharacterIndex);
         setActiveCharacter(currentCharacterIndex);
     }
 

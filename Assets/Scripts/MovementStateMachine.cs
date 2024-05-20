@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MovementState
+{
+    Selection,
+    Movement,
+    Finished
+}
 public class MovementStateMachine
 {
     private MovementState currentState;
@@ -18,7 +24,7 @@ public class MovementStateMachine
         this.character = character;
         this.movementController = movementController;
         // Is player turn active?
-        isEnabled = true;
+        isEnabled = false;
         currentState = MovementState.Selection;
         allowedCells = new List<GridCell>();
     }
@@ -54,8 +60,7 @@ public class MovementStateMachine
 
                 case MovementState.Finished:
                     Finished.Invoke();
-                    ChangeState(MovementState.Selection);
-                        
+                    ChangeState(MovementState.Selection);       
                 break;
             }
         }

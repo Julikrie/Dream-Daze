@@ -5,21 +5,26 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public int movementRange;
+    public int attackRange;
     public MovementStateMachine movementStateMachine { get; private set; }
+    public CharacterStateMachine characterStateMachine { get; private set; }   
+    public AttackStateMachine attackStateMachine { get; private set; }  
 
     private void Awake()
     {
         MovementController movementController = GetComponent<MovementController>();
         movementStateMachine = new MovementStateMachine(this, movementController);
+        attackStateMachine = new AttackStateMachine(this);
+        characterStateMachine = new CharacterStateMachine(movementStateMachine, attackStateMachine);
     }
 
     void Update()
     {
-        movementStateMachine.Update();
+        characterStateMachine.Update();
     }
 
-    public void ToggleMovement(bool isEnabled)
+    public void ToggleCharacter(bool isEnabled)
     {
-        movementStateMachine.Enable(isEnabled);
+        characterStateMachine.Enable(isEnabled);
     }
 }
