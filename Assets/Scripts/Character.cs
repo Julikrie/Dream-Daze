@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 {
     public int movementRange;
     public int attackRange;
+    public Sprite sprite;
     public MovementStateMachine movementStateMachine { get; private set; }
     public CharacterStateMachine characterStateMachine { get; private set; }   
     public AttackStateMachine attackStateMachine { get; private set; }  

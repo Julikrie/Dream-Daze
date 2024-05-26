@@ -25,4 +25,12 @@ public class GridCell
         this.isWalkable = isWalkable;
         this.movementCost = movementCost;
     }   
+    public Character GetCharacter()
+    {
+        if (occupant != null)
+        {
+            return occupant.GetComponent<Character>();
+        }
+        return null;
+    }
 }

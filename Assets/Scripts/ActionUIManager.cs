@@ -47,6 +47,7 @@ public class ActionUIManager : MonoBehaviour
         {
             Debug.Log("Ich habe Wait geklickt");
             character.characterStateMachine.ChangeState(CharacterState.Wait);
+            TileSelector.Instance.clearRangeMarkers();
             waitButton.interactable = false;
         }
     }

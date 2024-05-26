@@ -26,7 +26,9 @@ public class CharacterStateMachine
         isEnabled = false;
         this.movementStateMachine = movementStateMachine;
         this.movementStateMachine.Finished += MovementFinished;
-        this.attackStateMachine = attackStateMachine;   
+        this.attackStateMachine = attackStateMachine;
+        this.attackStateMachine.Finished += AttackFinished;
+
     }
 
     // Update is called once per frame
@@ -68,4 +70,8 @@ public class CharacterStateMachine
         ChangeState(CharacterState.Idle);
     }
 
+    void AttackFinished()
+    {
+        ChangeState(CharacterState.Idle);
+    }
 }
