@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class TileSelector : MonoBehaviour
 {
-    private List<GameObject> rangeMarkers = new List<GameObject>();
+    private List<GameObject> movementMarkers = new List<GameObject>();
+    private List<GameObject> attackMarkers = new List<GameObject>();
     public static TileSelector Instance { get; private set; }
     public GameObject indicatorPrefab, attackIndicatorPrefab;
     private GameObject selector;
@@ -49,7 +50,7 @@ public class TileSelector : MonoBehaviour
             if (GridManager.Instance.IsWalkable(gridCell))
             {
                 GameObject cell = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
-                rangeMarkers.Add(cell);
+                movementMarkers.Add(cell);
             }
         }
         return gridCells;
@@ -61,27 +62,36 @@ public class TileSelector : MonoBehaviour
         var gridCells = Pathfinder.Instance.GetAttackableCells(startCell, attackRange);
         foreach (var gridCell in gridCells)
         {
-            if(gridCell != null)
+            if (gridCell != null)
             {
                 GameObject cell = Instantiate(attackIndicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
-                rangeMarkers.Add(cell);
+                attackMarkers.Add(cell);
             }
         }
         return gridCells;
     }
 
     // clear highlighted Cells
-    public void clearRangeMarkers()
+    public void ClearMovementMarkers()
     {
-        foreach (GameObject marker in rangeMarkers)
+        Debug.Log("ClearMovementMarkers aufgerufen");
+        foreach (GameObject marker in movementMarkers)
         {
             Destroy(marker);
         }
-        rangeMarkers.Clear();
+        movementMarkers.Clear();
+    }
+
+    public void ClearAttackMarkers()
+    {
+        Debug.Log("ClearAttackMarkers aufgerufen");
+        foreach (GameObject marker in attackMarkers)
+        {
+            Destroy(marker);
+        }
+        attackMarkers.Clear();
     }
 }
-
-
 
 
 

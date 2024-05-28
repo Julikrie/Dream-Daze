@@ -25,7 +25,7 @@ public class AttackStateMachine
     {
         isEnabled = false;
         this.character = character;
-        this.attackableCells = new List<GridCell>();    
+        this.attackableCells = new List<GridCell>();
     }
     public void ChangeState(AttackState state)
     {
@@ -35,26 +35,24 @@ public class AttackStateMachine
     // Update is called once per frame
     public void Update()
     {
-        if (isEnabled) 
-        { 
+        if (isEnabled)
+        {
             switch (currentState)
             {
                 case AttackState.Selection:
-                    Debug.Log("Ich bin in der Attack-Selektion");
-                    Debug.Log(character.transform.position);    
                     attackableCells = TileSelector.Instance.HighlightAttackRange(character.transform.position, character.attackRange);
                     ChangeState(AttackState.Attack);
                     break;
-                
+
                 case AttackState.Attack:
                     if (Input.GetMouseButtonDown(0))
                     {
                         GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
                         if (gridCell != null && attackableCells.Contains(gridCell))
                         {
-                           TileSelector.Instance.clearRangeMarkers();
-                           Character enemy = gridCell.GetCharacter();
-                            if(enemy != null) 
+                            TileSelector.Instance.ClearAttackMarkers();
+                            Character enemy = gridCell.GetCharacter();
+                            if (enemy != null)
                             {
                                 BattleManager.Instance.InitiateBattle(character.gameObject, gridCell.occupant);
                             }
@@ -75,6 +73,7 @@ public class AttackStateMachine
     }
     public void Enable(bool isEnabled)
     {
+        ChangeState(AttackState.Selection);
         this.isEnabled = isEnabled;
     }
 }

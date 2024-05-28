@@ -36,7 +36,7 @@ public class MovementStateMachine
     public void Update()
     {
         if (isEnabled)
-        { 
+        {
             switch (currentState)
             {
                 // Highlights the moveable areas
@@ -49,9 +49,9 @@ public class MovementStateMachine
                     if (Input.GetMouseButtonDown(0))
                     {
                         GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
-                        if(gridCell != null && allowedCells.Contains(gridCell))
+                        if (gridCell != null && allowedCells.Contains(gridCell))
                         {
-                            TileSelector.Instance.clearRangeMarkers();
+                            TileSelector.Instance.ClearMovementMarkers();
                             movementController.MoveTo(gridCell.position);
                             ChangeState(MovementState.Finished);
                         }
@@ -60,13 +60,14 @@ public class MovementStateMachine
 
                 case MovementState.Finished:
                     Finished.Invoke();
-                    ChangeState(MovementState.Selection);       
-                break;
+                    ChangeState(MovementState.Selection);
+                    break;
             }
         }
     }
     public void Enable(bool isEnabled)
     {
+        ChangeState(MovementState.Selection);
         this.isEnabled = isEnabled;
     }
 

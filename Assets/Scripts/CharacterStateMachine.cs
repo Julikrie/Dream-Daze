@@ -34,25 +34,29 @@ public class CharacterStateMachine
     // Update is called once per frame
     public void Update()
     {
-       if (isEnabled)
+        if (isEnabled)
         {
             switch (currentState)
             {
                 case CharacterState.Move:
+                    TileSelector.Instance.ClearAttackMarkers();
                     movementStateMachine.Update();
                     break;
                 case CharacterState.Attack:
+                    TileSelector.Instance.ClearMovementMarkers();
                     Debug.Log("Ich bin CharacterStateMachine und im Attack");
                     attackStateMachine.Update();
                     break;
                 case CharacterState.Wait:
+                    ClearAllMarkers();
                     Finished.Invoke();
                     ChangeState(CharacterState.Idle);
                     break;
                 case CharacterState.Idle:
+                    ClearAllMarkers();
                     break;
             }
-        } 
+        }
     }
     public void ChangeState(CharacterState state)
     {
@@ -73,5 +77,12 @@ public class CharacterStateMachine
     void AttackFinished()
     {
         ChangeState(CharacterState.Idle);
+    }
+
+
+    void ClearAllMarkers()
+    {
+        TileSelector.Instance.ClearAttackMarkers();
+        TileSelector.Instance.ClearMovementMarkers();
     }
 }
