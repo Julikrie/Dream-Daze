@@ -10,7 +10,7 @@ public class MovementWorld : MonoBehaviour
     Vector2 movement;
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>(); 
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
