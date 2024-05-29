@@ -20,7 +20,6 @@ public class CharacterStateMachine
     private MovementStateMachine movementStateMachine;
     private AttackStateMachine attackStateMachine;
 
-    // Start is called before the first frame update
     public CharacterStateMachine(MovementStateMachine movementStateMachine, AttackStateMachine attackStateMachine)
     {
         isEnabled = false;
@@ -31,7 +30,6 @@ public class CharacterStateMachine
 
     }
 
-    // Update is called once per frame
     public void Update()
     {
         if (isEnabled)

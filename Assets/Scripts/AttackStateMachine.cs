@@ -32,7 +32,7 @@ public class AttackStateMachine
         currentState = state;
     }
 
-    // Update is called once per frame
+    // When in AttackState show tile selector for attack range and clear when finished
     public void Update()
     {
         if (isEnabled)

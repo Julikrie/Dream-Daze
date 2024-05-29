@@ -56,6 +56,7 @@ public class TileSelector : MonoBehaviour
         return gridCells;
     }
 
+    // Hightlight Characters attack range
     public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
     {
         var startCell = GridManager.Instance.GetGridCell(startPosition);

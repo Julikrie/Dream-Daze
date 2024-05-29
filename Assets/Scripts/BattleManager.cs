@@ -22,11 +22,14 @@ public class BattleManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    // Battle Canvas turned off on start
     private void Start()
     {
         battleCanvas.SetActive(false);
     }
 
+    // Teleport Player and Enemy on the Battle Canvas position
     public void InitiateBattle(GameObject attacker, GameObject enemy)
     {
         Vector2 attackOldPosition = attacker.transform.position;

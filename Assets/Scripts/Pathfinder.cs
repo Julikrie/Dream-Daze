@@ -39,6 +39,7 @@ public class Pathfinder : MonoBehaviour
 
             openSet.Remove(currentCell);
             closedSet.Add(currentCell);
+
             // Explores Cells for shortest Way
             if (currentCell == targetCell)
             {

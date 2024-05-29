@@ -17,9 +17,11 @@ public class MovementWorld : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        
+        // Diagonal Movement same speed as in Y an X direction
         movement = movement.normalized;
 
+        // If moving change look direction to move direction
         if(movement != Vector2.zero)
         {
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;

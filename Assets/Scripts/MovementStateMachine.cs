@@ -23,6 +23,7 @@ public class MovementStateMachine
     {
         this.character = character;
         this.movementController = movementController;
+        
         // Is player turn active?
         isEnabled = false;
         currentState = MovementState.Selection;

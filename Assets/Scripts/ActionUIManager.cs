@@ -15,12 +15,15 @@ public class ActionUIManager : MonoBehaviour
     {
     }
 
+    // Chooses character
     public void SetCharacter(Character character)
     {
         this.character = character;
         character.characterStateMachine.Finished += CharacterFinished;
 
     }
+
+    // Changes to MoveState and disables Move Button
     public void OnMoveButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
@@ -31,6 +34,7 @@ public class ActionUIManager : MonoBehaviour
         }
     }
 
+    // Changes to AttackState and disables Attack Button
     public void OnAttackButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
@@ -41,6 +45,7 @@ public class ActionUIManager : MonoBehaviour
         }
     }
 
+    // Changes to WaitState/Idle and disables Wait Button
     public void OnWaitButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
@@ -49,6 +54,8 @@ public class ActionUIManager : MonoBehaviour
             waitButton.interactable = false;
         }
     }
+
+    // Reset the Buttons for next turn
     void CharacterFinished()
     {
         moveButton.interactable = true;

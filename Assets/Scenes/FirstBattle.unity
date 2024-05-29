@@ -1150,10 +1150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50608bae85855d45a595848fd2f66e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 34
-  mana: 16
-  heroName: Filler
-  jobClass: Job
 --- !u!114 &538631964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,13 +1162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7599690558fb846b269beb5e8805c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Julian
-  className: Hero
-  health: 32
-  mana: 16
-  strength: 14
-  intelligence: 12
-  agility: 10
 --- !u!114 &603067353 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4128493780935908425, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
@@ -2185,7 +2174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.b
-      value: 0.95506525
+      value: 0.88947725
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.g
@@ -2193,7 +2182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.99215686
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_SortingOrder
@@ -2201,7 +2190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931144090668296836, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Name
-      value: CharacterEnemyPink
+      value: Character_Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2730,7 +2719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: 28}
+  m_AnchoredPosition: {x: -811, y: 340}
   m_SizeDelta: {x: 120, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554498662
@@ -2986,15 +2975,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.b
-      value: 0.2527678
+      value: 0.9622642
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.08715789
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.06808472
       objectReference: {fileID: 0}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_SortingOrder
@@ -3002,7 +2991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931144090668296836, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Name
-      value: CharacterMage
+      value: CharacterMage_Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5849,7 +5838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931144090668296836, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Name
-      value: CharacterHero
+      value: CharacterHero_Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
