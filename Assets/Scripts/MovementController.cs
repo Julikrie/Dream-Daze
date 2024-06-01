@@ -1,16 +1,18 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MovementController : MonoBehaviour
 {
     private Queue<Vector3> pathPoints = new Queue<Vector3>();
+    private Action onMoveCompleted;
 
     void Update()
     {
         MoveAlongPath();
     }
-
-    public void MoveTo(Vector2Int targetGridPosition)
+    public void MoveTo(Vector2Int targetGridPosition, Action onMoveCompleted = null)
     {
         // Check if Path is already followed
         if (pathPoints.Count == 0)
@@ -21,7 +23,6 @@ public class MovementController : MonoBehaviour
             // Make sure the cells are valid
             if (startCell != null && targetCell != null)
             {
-
                 List<GridCell> path = Pathfinder.Instance.FindPath(startCell, targetCell);
                 if (path.Count > 0)
                 {
@@ -31,6 +32,9 @@ public class MovementController : MonoBehaviour
                 // Move Object from start Cell to target Cell
                 startCell.occupant = null;
                 targetCell.occupant = gameObject;
+
+                // Invoke the callback if provided
+                this.onMoveCompleted = onMoveCompleted;
             }
         }
     }
@@ -45,24 +49,35 @@ public class MovementController : MonoBehaviour
         }
         MoveAlongPath();
     }
-
     // Walking the Path
     private void MoveAlongPath()
-    {   // As long as there are Tiles to walk, walk to the next Tile
+    {
+        // As long as there are Tiles to walk, walk to the next Tile
         if (pathPoints.Count > 0)
-        { // Look at next Tile
+        {
+            // Look at next Tile
             Vector3 targetPosition = pathPoints.Peek();
             if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-            {   // Move to next Tile
+            {
+                // Move to next Tile
                 Vector3 moveDirection = (targetPosition - transform.position).normalized;
                 transform.position += moveDirection * 5 * Time.deltaTime;
             }
             else
-            {   // When close enough set to exact position 
+            {
+                // When close enough set to exact position 
                 transform.position = targetPosition;
                 pathPoints.Dequeue();
             }
         }
+        else if (onMoveCompleted != null)
+        {
+            // Invoke the callback when the path is completed
+            onMoveCompleted.Invoke();
+            // Reset the callback after invoking
+            onMoveCompleted = null;
+        }
     }
 }
+
 

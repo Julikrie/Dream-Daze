@@ -11,17 +11,19 @@ public class TurnManager : MonoBehaviour
     // Set next Character active if turn finished
     void Start()
     {
-        foreach (Character character in characters) 
+        foreach (Character character in characters)
         {
             character.characterStateMachine.Finished += characterFinished;
         }
         Debug.Log("Ich bin " + currentCharacterIndex);
         currentCharacterIndex = 0;
-        setActiveCharacter(currentCharacterIndex); 
+        setActiveCharacter(currentCharacterIndex);
     }
     private void characterFinished()
     {
+
         NextTurn();
+
     }
     private void setActiveCharacter(int index)
     {
@@ -31,6 +33,14 @@ public class TurnManager : MonoBehaviour
         }
         characters[index].ToggleCharacter(true);
         actionUIManager.SetCharacter(characters[index]);
+        if (TeamManager.Instance.IsEnemyCharacter(characters[index])) 
+        {
+            ActionUIManager.Instance.SetCanvasActive(false);
+        }
+        else
+        {
+            ActionUIManager.Instance.SetCanvasActive(true);
+        }
     }
     public void NextTurn()
     {
@@ -40,3 +50,4 @@ public class TurnManager : MonoBehaviour
     }
 
 }
+

@@ -31,4 +31,14 @@ public class TeamManager : MonoBehaviour
         }
         return false;
     }
+
+    public bool IsEnemyCharacter(Character currentCharacter)
+    {
+        return enemyTeam.Contains(currentCharacter);
+    }
+
+    public bool IsPlayerCharacter(Character currentCharacter)
+    {
+        return playerTeam.Contains(currentCharacter);
+    }
 }

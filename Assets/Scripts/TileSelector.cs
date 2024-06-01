@@ -7,6 +7,7 @@ public class TileSelector : MonoBehaviour
     private List<GameObject> attackMarkers = new List<GameObject>();
     public static TileSelector Instance { get; private set; }
     public GameObject indicatorPrefab, attackIndicatorPrefab;
+    public bool pauseIndicator;
     private GameObject selector;
 
     private void Awake()
@@ -28,26 +29,37 @@ public class TileSelector : MonoBehaviour
 
     public GridCell HighlightIndicator()
     {   // Highlighting the Cell hovered over
-        GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
-        if (gridCell != null)
+        if (!pauseIndicator) {
+            GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
+            if (gridCell != null)
+            {
+                if (selector != null)
+                {
+                    Destroy(selector);
+                }
+                selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
+                return gridCell;
+            }
+        } 
+        else
         {
             if (selector != null)
             {
                 Destroy(selector);
             }
-            selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
-            return gridCell;
         }
+
         return null;
     }
     // Highlights Characters movement range
     public List<GridCell> HighlightMovementRange(Vector3 startPosition, int movementRange)
     {
+        ClearMovementMarkers();
         var startCell = GridManager.Instance.GetGridCell(startPosition);
         var gridCells = Pathfinder.Instance.GetReachableCells(startCell, movementRange);
         foreach (var gridCell in gridCells)
         {
-            if (GridManager.Instance.IsWalkable(gridCell))
+            if (gridCell != startCell && GridManager.Instance.IsWalkable(gridCell))
             {
                 GameObject cell = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
                 movementMarkers.Add(cell);
@@ -59,11 +71,12 @@ public class TileSelector : MonoBehaviour
     // Hightlight Characters attack range
     public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
     {
+        ClearAttackMarkers();
         var startCell = GridManager.Instance.GetGridCell(startPosition);
         var gridCells = Pathfinder.Instance.GetAttackableCells(startCell, attackRange);
         foreach (var gridCell in gridCells)
         {
-            if (gridCell != null)
+            if (gridCell != startCell && gridCell != null)
             {
                 GameObject cell = Instantiate(attackIndicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
                 attackMarkers.Add(cell);

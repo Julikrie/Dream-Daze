@@ -21,12 +21,10 @@ public class GridManager : MonoBehaviour
         else
         {
             Instance = this;
+            //Generate Grid before everything else to position Characters
+            grid = new Dictionary<Vector2Int, GridCell>();
+            generateGrid();
         }
-    }
-    void Start()
-    {
-        grid = new Dictionary<Vector2Int, GridCell>();
-        generateGrid();
     }
 
     // Generate Grid for game field 
@@ -97,6 +95,60 @@ public class GridManager : MonoBehaviour
         return (Vector2Int)tilePosition;
     }
 
+    public List<GridCell> GetGridCellsOfPlayerCharacters()
+    {
+        List<GridCell> playerCharacterCells = new List<GridCell>();
+
+        foreach (Character playerCharacter in TeamManager.Instance.playerTeam)
+        {
+            GameObject parentObject = playerCharacter.gameObject;
+
+            GridCell cell = GetGridCell(parentObject.transform.position);
+            if (cell != null && !playerCharacterCells.Contains(cell))
+            {
+                playerCharacterCells.Add(cell);
+            }
+        }
+
+        return playerCharacterCells;
+    }
+    public GridCell GetNearestPlayerCell(GridCell aiCell)
+    {
+        //Get the nearest Player to calculate to whom to move
+        GridCell nearestPlayerCell = null;
+        float minDistance = float.MaxValue;
+
+        foreach (GridCell playerCell in GetGridCellsOfPlayerCharacters())
+        {
+            float distance = Pathfinder.Instance.GetDistance(aiCell, playerCell);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestPlayerCell = playerCell;
+            }
+        }
+
+        return nearestPlayerCell != null ? nearestPlayerCell : null;
+    }
+
+    public GridCell GetClosestCellToPlayer(List<GridCell> allowedCells, GridCell targetCell)
+    {
+        //Get the closest cell to the nearest player within the possible movement range
+        GridCell nearestAllowedCell = null;
+        float minDistance = float.MaxValue;
+
+        foreach (GridCell allowedCell in allowedCells)
+        {
+            float distance = Pathfinder.Instance.GetDistance(allowedCell, targetCell);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestAllowedCell = allowedCell;
+            }
+        }
+
+        return nearestAllowedCell;
+    }
 
     public bool IsWalkable(GridCell cellCoords)
     {
@@ -131,4 +183,6 @@ public class GridManager : MonoBehaviour
         }
         return neighbors;
     }
+
+
 }

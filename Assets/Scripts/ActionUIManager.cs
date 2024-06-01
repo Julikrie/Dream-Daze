@@ -1,51 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ActionUIManager : MonoBehaviour
 {
+    public static ActionUIManager Instance { get; private set; }
     public Button moveButton;
     public Button attackButton;
     public Button waitButton;
 
+    public GameObject actionCanvas;
+
     public Character character;
 
-    private void Start()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
-    // Chooses character
     public void SetCharacter(Character character)
     {
         this.character = character;
         character.characterStateMachine.Finished += CharacterFinished;
 
     }
-
-    // Changes to MoveState and disables Move Button
     public void OnMoveButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
         {
             Debug.Log("Ich habe Move geklickt");
+            SetCanvasActive(false);
             character.characterStateMachine.ChangeState(CharacterState.Move);
-            moveButton.interactable = false;
         }
     }
 
-    // Changes to AttackState and disables Attack Button
     public void OnAttackButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
         {
             Debug.Log("Ich habe Attack geklickt");
+            SetCanvasActive(false);
             character.characterStateMachine.ChangeState(CharacterState.Attack);
-            attackButton.interactable = false;
         }
     }
 
-    // Changes to WaitState/Idle and disables Wait Button
     public void OnWaitButtonClicked()
     {
         if (character != null && character.characterStateMachine != null)
@@ -55,12 +62,38 @@ public class ActionUIManager : MonoBehaviour
         }
     }
 
-    // Reset the Buttons for next turn
+    public void DisableMoveButton()
+    {
+        moveButton.interactable = false;
+    }
+
+    public void DisableAttackButton()
+    {
+        attackButton.interactable = false;
+    }
+
     void CharacterFinished()
     {
         moveButton.interactable = true;
         attackButton.interactable = true;
         waitButton.interactable = true;
+    }
+
+    public void SetCanvasActive(bool isActive)
+    {
+        actionCanvas.SetActive(isActive);
+    }
+
+    public void ToggleCanvasOnClick()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Ich klicke rechtsklick");
+
+            SetCanvasActive(true);
+            TileSelector.Instance.ClearAttackMarkers();
+            TileSelector.Instance.ClearMovementMarkers();
+        }
     }
 }
 

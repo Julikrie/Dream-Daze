@@ -24,9 +24,11 @@ public class CharacterStateMachine
     {
         isEnabled = false;
         this.movementStateMachine = movementStateMachine;
-        this.movementStateMachine.Finished += MovementFinished;
+        this.movementStateMachine.FinishedPlayer += MovementFinishedPlayer;
+        this.movementStateMachine.FinishedAI += MovementFinishedAI;
         this.attackStateMachine = attackStateMachine;
-        this.attackStateMachine.Finished += AttackFinished;
+        this.attackStateMachine.FinishedPlayer += AttackFinishedPlayer;
+        this.attackStateMachine.FinishedAI += AttackFinishedAI;
 
     }
 
@@ -42,7 +44,6 @@ public class CharacterStateMachine
                     break;
                 case CharacterState.Attack:
                     TileSelector.Instance.ClearMovementMarkers();
-                    Debug.Log("Ich bin CharacterStateMachine und im Attack");
                     attackStateMachine.Update();
                     break;
                 case CharacterState.Wait:
@@ -58,6 +59,8 @@ public class CharacterStateMachine
     }
     public void ChangeState(CharacterState state)
     {
+        movementStateMachine.Enable(isEnabled);
+        attackStateMachine.Enable(isEnabled);
         currentState = state;
     }
     public void Enable(bool isEnabled)
@@ -67,14 +70,22 @@ public class CharacterStateMachine
         attackStateMachine.Enable(isEnabled);
     }
 
-    void MovementFinished()
+    void MovementFinishedPlayer()
     {
         ChangeState(CharacterState.Idle);
     }
+    void MovementFinishedAI()
+    {
+        ChangeState(CharacterState.Attack);
+    }
 
-    void AttackFinished()
+    void AttackFinishedPlayer()
     {
         ChangeState(CharacterState.Idle);
+    }
+    void AttackFinishedAI()
+    {
+        ChangeState(CharacterState.Wait);
     }
 
 

@@ -113,7 +113,7 @@ public class Pathfinder : MonoBehaviour
         return path;
     }
 
-    private int GetDistance(GridCell cellA, GridCell cellB)
+    public int GetDistance(GridCell cellA, GridCell cellB)
     {
         int distX = Mathf.Abs(cellA.position.x - cellB.position.x);
         int distY = Mathf.Abs(cellA.position.y - cellB.position.y);

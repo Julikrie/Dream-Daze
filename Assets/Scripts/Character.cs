@@ -19,6 +19,18 @@ public class Character : MonoBehaviour
         characterStateMachine = new CharacterStateMachine(movementStateMachine, attackStateMachine);
     }
 
+    void Start()
+    {
+
+        var gridPosition = GridManager.Instance.GetGridFromWorldPosition(gameObject.transform.position);
+        var gridCell = GridManager.Instance.GetGridCell(gridPosition);
+        if (gridCell != null)
+        {
+            gridCell.occupant = gameObject;
+            gameObject.transform.position = GridManager.Instance.GetWorldFromCellPosition(gridCell);
+        }
+    }
+
     void Update()
     {
         characterStateMachine.Update();
@@ -27,5 +39,9 @@ public class Character : MonoBehaviour
     public void ToggleCharacter(bool isEnabled)
     {
         characterStateMachine.Enable(isEnabled);
+        if (TeamManager.Instance.IsEnemyCharacter(this) && isEnabled)
+        {
+            characterStateMachine.ChangeState(CharacterState.Move);
+        }
     }
 }
