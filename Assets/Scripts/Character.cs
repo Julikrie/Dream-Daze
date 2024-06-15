@@ -1,15 +1,22 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public CharacterAttributes characterAttributes;
+
     public int movementRange;
     public int attackRange;
     public Sprite sprite;
+    public bool isDead;
+    public Action<Character> tookDamage;
+
+    public List<IHeroAbility> abilities;
+
     public MovementStateMachine movementStateMachine { get; private set; }
-    public CharacterStateMachine characterStateMachine { get; private set; }   
-    public AttackStateMachine attackStateMachine { get; private set; }  
+    public CharacterStateMachine characterStateMachine { get; private set; }
+    public AttackStateMachine attackStateMachine { get; private set; }
 
     private void Awake()
     {
@@ -21,6 +28,14 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        characterAttributes.currentHealth = characterAttributes.maxHealth;
+        characterAttributes.currentMana = characterAttributes.maxMana;
+
+        abilities = new List<IHeroAbility>();
+        abilities.Add(new Cleave());
+        abilities.Add(new HeroicBuff());
+        abilities.Add(new PokeEye());
+        abilities.Add(new HighKick());
 
         var gridPosition = GridManager.Instance.GetGridFromWorldPosition(gameObject.transform.position);
         var gridCell = GridManager.Instance.GetGridCell(gridPosition);
@@ -43,5 +58,53 @@ public class Character : MonoBehaviour
         {
             characterStateMachine.ChangeState(CharacterState.Move);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (this.characterAttributes != null)
+        {
+            this.characterAttributes.currentHealth -= damage;
+            tookDamage.Invoke(this);
+            Debug.Log($"{this.characterAttributes.currentHealth} of {this.characterAttributes.maxHealth} health left. Just took {damage} damage!");
+            if (this.characterAttributes.currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+        else
+        {
+            Debug.LogError($"CharacterAttributes is null in TakeDamage method!");
+        }
+    }
+
+
+    public void SpendMana(int manaCost)
+    {
+        if (characterAttributes.currentMana - manaCost <= 0)
+        {
+            characterAttributes.currentMana -= manaCost;
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log($"Just killed {gameObject.name}!");
+        isDead = true;
+    }
+
+    public void BasicAttack(Character other)
+    {
+        other.TakeDamage(characterAttributes.strength / 2);
+    }
+
+  
+   private void OnDestroy()
+    {
+        GridCell gridCell = GridManager.Instance.GetGridCell(gameObject.transform.position);
+        gridCell.occupant = null;
+        this.characterStateMachine.ChangeState(CharacterState.Wait);
+        TeamManager.Instance.RemoveCharacter(this);
+        TurnManager.Instance.RemoveCharacter(this);
     }
 }

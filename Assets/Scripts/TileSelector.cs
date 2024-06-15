@@ -7,8 +7,9 @@ public class TileSelector : MonoBehaviour
     private List<GameObject> attackMarkers = new List<GameObject>();
     public static TileSelector Instance { get; private set; }
     public GameObject indicatorPrefab, attackIndicatorPrefab;
-    public bool pauseIndicator;
     private GameObject selector;
+
+    private bool paused;
 
     private void Awake()
     {
@@ -24,12 +25,14 @@ public class TileSelector : MonoBehaviour
 
     void Update()
     {
-        HighlightIndicator();
+        //HighlightIndicator();
     }
 
     public GridCell HighlightIndicator()
-    {   // Highlighting the Cell hovered over
-        if (!pauseIndicator) {
+    {
+        if (!paused)
+        {
+            // Highlighting the Cell hovered over
             GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
             if (gridCell != null)
             {
@@ -40,7 +43,7 @@ public class TileSelector : MonoBehaviour
                 selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
                 return gridCell;
             }
-        } 
+        }
         else
         {
             if (selector != null)
@@ -48,6 +51,7 @@ public class TileSelector : MonoBehaviour
                 Destroy(selector);
             }
         }
+
 
         return null;
     }
@@ -68,7 +72,6 @@ public class TileSelector : MonoBehaviour
         return gridCells;
     }
 
-    // Hightlight Characters attack range
     public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
     {
         ClearAttackMarkers();
@@ -88,7 +91,6 @@ public class TileSelector : MonoBehaviour
     // clear highlighted Cells
     public void ClearMovementMarkers()
     {
-        Debug.Log("ClearMovementMarkers aufgerufen");
         foreach (GameObject marker in movementMarkers)
         {
             Destroy(marker);
@@ -98,16 +100,15 @@ public class TileSelector : MonoBehaviour
 
     public void ClearAttackMarkers()
     {
-        Debug.Log("ClearAttackMarkers aufgerufen");
         foreach (GameObject marker in attackMarkers)
         {
             Destroy(marker);
         }
         attackMarkers.Clear();
     }
+
+    public void SetPause(bool paused)
+    {
+        this.paused = paused;
+    }
 }
-
-
-
-
-

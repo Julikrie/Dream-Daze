@@ -71,7 +71,9 @@ public class GridManager : MonoBehaviour
     // Get mouse position directly
     public GridCell GetGridCellFromMousePosition()
     {
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        Vector3 mousePosition = Input.mousePosition;
+
+        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
         return GetGridCell(mouseWorldPosition);
     }
 

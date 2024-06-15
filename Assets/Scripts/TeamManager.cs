@@ -41,4 +41,19 @@ public class TeamManager : MonoBehaviour
     {
         return playerTeam.Contains(currentCharacter);
     }
+
+    public void RemoveCharacter(Character character)
+    {
+        Debug.Log("Character was removed");
+
+        if( IsEnemyCharacter(character))
+        {
+            enemyTeam.Remove(character);
+        }
+        else
+        {
+            playerTeam.Remove(character);
+        }
+    }
+
 }

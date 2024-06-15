@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -71,12 +68,15 @@ public class ActionUIManager : MonoBehaviour
     {
         attackButton.interactable = false;
     }
-
-    void CharacterFinished()
+    public void ResetButtons()
     {
         moveButton.interactable = true;
         attackButton.interactable = true;
         waitButton.interactable = true;
+    }
+    void CharacterFinished()
+    {
+        ResetButtons();
     }
 
     public void SetCanvasActive(bool isActive)
@@ -94,6 +94,10 @@ public class ActionUIManager : MonoBehaviour
             TileSelector.Instance.ClearAttackMarkers();
             TileSelector.Instance.ClearMovementMarkers();
         }
+    }
+    public void SetPause(bool paused)
+    {
+        actionCanvas.SetActive(!paused);
     }
 }
 
