@@ -15,12 +15,12 @@ MonoBehaviour:
   characterName: Enemybert
   characterClass: Enemy
   characterClassification: Stone
-  maxHealth: 32
-  currentHealth: -6
+  maxHealth: 20
+  currentHealth: 4
   maxMana: 16
   currentMana: 16
   physicalDefense: 12
   magicalDefense: 8
-  strength: 10
+  strength: 16
   intelligence: 9
   agility: 10

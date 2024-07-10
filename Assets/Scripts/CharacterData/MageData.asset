@@ -15,12 +15,12 @@ MonoBehaviour:
   characterName: Dieter
   characterClass: Mage
   characterClassification: Paper
-  maxHealth: 16
-  currentHealth: -4
+  maxHealth: 25
+  currentHealth: 25
   maxMana: 16
   currentMana: 16
   physicalDefense: 7
-  magicalDefense: 100
-  strength: 8
+  magicalDefense: 12
+  strength: 17
   intelligence: 16
   agility: 8

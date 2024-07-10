@@ -21,6 +21,6 @@ MonoBehaviour:
   currentMana: 16
   physicalDefense: 12
   magicalDefense: 8
-  strength: 100
+  strength: 23
   intelligence: 9
   agility: 10

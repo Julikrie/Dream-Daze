@@ -81,7 +81,10 @@ public class ActionUIManager : MonoBehaviour
 
     public void SetCanvasActive(bool isActive)
     {
-        actionCanvas.SetActive(isActive);
+        if (actionCanvas != null)
+        {
+            actionCanvas.SetActive(isActive);
+        }
     }
 
     public void ToggleCanvasOnClick()

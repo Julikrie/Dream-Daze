@@ -98,11 +98,16 @@ public class Character : MonoBehaviour
         other.TakeDamage(characterAttributes.strength / 2);
     }
 
-  
-   private void OnDestroy()
+
+    private void OnDestroy()
     {
         GridCell gridCell = GridManager.Instance.GetGridCell(gameObject.transform.position);
-        gridCell.occupant = null;
+        
+        if (gridCell != null)
+        {
+            gridCell.occupant = null;
+        }
+
         this.characterStateMachine.ChangeState(CharacterState.Wait);
         TeamManager.Instance.RemoveCharacter(this);
         TurnManager.Instance.RemoveCharacter(this);

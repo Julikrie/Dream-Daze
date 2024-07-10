@@ -57,14 +57,19 @@ public class GridManager : MonoBehaviour
 
     public GridCell GetGridCell(Vector3 worldPosition)
     {
-        // Convert from World to grid coordinates to get cell information
-        Vector3Int tilePosition = tileMap.WorldToCell(worldPosition);
-        Vector2Int cellPosition = new Vector2Int(tilePosition.x, tilePosition.y);
-        // Look if in Dictionary
-        if (grid.ContainsKey(cellPosition))
+        if (tileMap != null)
         {
-            return grid[cellPosition];
+            // Convert from World to grid coordinates to get cell information
+            Vector3Int tilePosition = tileMap.WorldToCell(worldPosition);
+            Vector2Int cellPosition = new Vector2Int(tilePosition.x, tilePosition.y);
+            // Look if in Dictionary
+            if (grid.ContainsKey(cellPosition))
+            {
+                return grid[cellPosition];
+            }
         }
+
+
         return null;
     }
 

@@ -1,5 +1,5 @@
+using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class BattleHUD : MonoBehaviour
@@ -25,28 +25,30 @@ public class BattleHUD : MonoBehaviour
     public void AssignPlayerInformation(Character player, Character enemy)
     {
         this.player = player;
+        Debug.Log($"Player name is {player.name}");
+        Debug.Log($"Enemy name is {enemy.name}");
         this.enemy = enemy;
         this.player.tookDamage += UpdateSlider;
         this.enemy.tookDamage += UpdateSlider;
 
         skillsContainer.SetActive(false);
 
-        Debug.Log($"Enemy has health {enemy.characterAttributes.currentHealth}");
-        Debug.Log($"Player has health {player.characterAttributes.currentHealth}");
-        SetHealth(player, healthSliderPlayer);
-        SetHealth(enemy, healthSliderEnemy);
+        Debug.Log($"Enemy has health {this.enemy.characterAttributes.currentHealth}");
+        Debug.Log($"Player has health {this.player.characterAttributes.currentHealth}");
+        SetHealth(this.player, healthSliderPlayer);
+        SetHealth(this.enemy, healthSliderEnemy);
 
         for (int i = 0; i < abilityButtons.Length; i++)
         {
-            if (i < player.abilities.Count)
+            if (i < this.player.abilities.Count)
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                buttonText.text = player.abilities[i].Name;
+                buttonText.text = this.player.abilities[i].Name;
                 int abilityIndex = i;
                 abilityButtons[i].onClick.AddListener(() =>
                 {
-                    Debug.Log($"Button with {player.abilities[abilityIndex].Name}, index is {abilityIndex} clicked and size of abilities is {player.abilities.Count}");
-                    player.abilities[abilityIndex].Use(player, enemy);
+                    Debug.Log($"Button with {this.player.abilities[abilityIndex].Name} for {this.player.name}, index is {abilityIndex} clicked and size of abilities is {this.player.abilities.Count}");
+                    player.abilities[abilityIndex].Use(this.player, this.enemy);
                     BattleManager.Instance.StartEnemyTurn();
                     DisableButtonIfManaTooLow();
                 });
@@ -73,13 +75,13 @@ public class BattleHUD : MonoBehaviour
     {
         showSkillContainer = !showSkillContainer;
 
-        if(showSkillContainer)
+        if (showSkillContainer)
         {
             skillsContainer.SetActive(true);
         }
         else
         {
-        skillsContainer.SetActive(false); 
+            skillsContainer.SetActive(false);
         }
     }
 
@@ -98,8 +100,8 @@ public class BattleHUD : MonoBehaviour
         {
             if (i < player.abilities.Count)
             {
-                Character currentCharacter = player; 
-                int currentIndex = i; 
+                Character currentCharacter = player;
+                int currentIndex = i;
                 abilityButtons[i].interactable = currentCharacter.characterAttributes.currentMana >= currentCharacter.abilities[currentIndex].manaCost;
             }
         }
@@ -113,7 +115,7 @@ public class BattleHUD : MonoBehaviour
     }
     private void UpdateSlider(Character character)
     {
-        if(character == this.player)
+        if (character == this.player)
         {
             healthSliderPlayer.value = this.player.characterAttributes.currentHealth;
         }

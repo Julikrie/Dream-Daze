@@ -68,9 +68,9 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("ENEMY TURN");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             enemyCharacter.BasicAttack(playerCharacter);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             //TODO: EnemyBuffs/Debuffs runterzählen und entfernen
             ChangeState(BattleState.PlayerTurn);
             StartCoroutine(PlayerTurn());
