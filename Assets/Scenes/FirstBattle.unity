@@ -3240,7 +3240,7 @@ MonoBehaviour:
   enemyTeam:
   - {fileID: 603067353}
   - {fileID: 1661336890}
-  - {fileID: 437062975}
+  - {fileID: 0}
 --- !u!4 &1105776136
 Transform:
   m_ObjectHideFlags: 0
@@ -3593,7 +3593,7 @@ PrefabInstance:
     - target: {fileID: 4128493780935908425, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+      objectReference: {fileID: 5320241986537032301, guid: dd4da95e578405f4787be30dbe939819, type: 3}
     - target: {fileID: 4128493780935908425, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: attackRange
       value: 3
@@ -3602,6 +3602,14 @@ PrefabInstance:
       propertyPath: characterAttributes
       value: 
       objectReference: {fileID: 11400000, guid: dc3cb56caafb06c4c889d03f291697e6, type: 2}
+    - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0be60de016a27da468593094a7bf2b7f, type: 3}
     - target: {fileID: 8089820569099914420, guid: f337a893f22c7c048b4ce05d0f67b9f3, type: 3}
       propertyPath: m_Color.b
       value: 0.88947725
