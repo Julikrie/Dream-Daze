@@ -6,11 +6,13 @@ public class MovementWorld : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody2D rb2D;
+    private Animator animator;
 
     Vector2 movement;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -21,14 +23,18 @@ public class MovementWorld : MonoBehaviour
         // Diagonal Movement same speed as in Y an X direction
         movement = movement.normalized;
 
-        // If moving change look direction to move direction
-        if(movement != Vector2.zero)
+        if (movement.x < 0)
         {
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
-            
-            rb2D.rotation = angle;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
+        else if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        animator.SetBool("isMoving", movement != Vector2.zero);
     }
+
     private void FixedUpdate()
     {
         rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);

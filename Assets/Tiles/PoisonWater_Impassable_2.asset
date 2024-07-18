@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Tileset_School_33
+  m_Name: PoisonWater_Impassable_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 952643650, guid: eb8bfb7db71029d46a7a49bbee8621a1, type: 3}
+  m_Sprite: {fileID: 1653920236, guid: c399b75981991164284ac94668ce6562, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

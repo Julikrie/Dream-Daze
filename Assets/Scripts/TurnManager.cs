@@ -93,6 +93,6 @@ public class TurnManager : MonoBehaviour
     private IEnumerator LoadSceneWithDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("School");
     }
 }
