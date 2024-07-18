@@ -23,6 +23,10 @@ public class ActionUIManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Update()
+    {
+        actionCanvas.transform.position = character.transform.position + new Vector3(-1.3f , 0.2f , 0);
+    }
 
     public void SetCharacter(Character character)
     {
