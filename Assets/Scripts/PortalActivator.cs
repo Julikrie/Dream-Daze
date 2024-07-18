@@ -16,6 +16,7 @@ public class PortalActivator : MonoBehaviour
     {
         portal.SetActive(true);
     }
+
 }
 
 
