@@ -92,8 +92,7 @@ public class Character : MonoBehaviour
         Debug.Log(Mathf.RoundToInt(effectivness * (characterAttributes.strength / 2)));
         other.TakeDamage(Mathf.RoundToInt(effectivness *(characterAttributes.strength / 2)));
     }
-
-
+ 
     private void OnDestroy()
     {
         GridCell gridCell = GridManager.Instance.GetGridCell(gameObject.transform.position);

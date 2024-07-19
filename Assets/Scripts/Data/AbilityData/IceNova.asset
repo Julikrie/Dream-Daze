@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IceNova
   m_EditorClassIdentifier: Assembly-CSharp::IceNova
   Name: Ice Nova
-  ManaCost: 4
-  Damage: 4
+  ManaCost: 3
+  Damage: 5

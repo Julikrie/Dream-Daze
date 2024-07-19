@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
   Name: Fireball
-  ManaCost: 6
+  ManaCost: 3
   Damage: 6

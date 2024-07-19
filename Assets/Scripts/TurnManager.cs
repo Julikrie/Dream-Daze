@@ -13,8 +13,6 @@ public class TurnManager : MonoBehaviour
     public ActionUIManager actionUIManager;
     private int currentCharacterIndex;
 
-    private bool isGameOver = false;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -46,7 +44,7 @@ public class TurnManager : MonoBehaviour
 
     private void SetActiveCharacter(int index)
     {
-        if (characters.Count == 0 || isGameOver)
+        if (characters.Count == 0 || GameManager.Instance.isGameOver)
         {
             return;
         }
@@ -80,7 +78,7 @@ public class TurnManager : MonoBehaviour
     }
     public void NextTurn()
     {
-        if (characters.Count == 0 || isGameOver)
+        if (characters.Count == 0 || GameManager.Instance.isGameOver)
         {
             return;
         }
@@ -99,7 +97,7 @@ public class TurnManager : MonoBehaviour
 
     public void RemoveCharacter(Character character)
     {
-        if (!isGameOver)
+        if (!GameManager.Instance.isGameOver)
         {
             int characterIndex = characters.IndexOf(character);
 
@@ -107,10 +105,10 @@ public class TurnManager : MonoBehaviour
 
             characters[characterIndex] = null;
 
-            CheckIfGameHasEnded();
+            GameManager.Instance.CheckBattleEnded();
 
 
-            if (isGameOver)
+            if (GameManager.Instance.isGameOver)
             {
                 return;
             }
@@ -121,30 +119,5 @@ public class TurnManager : MonoBehaviour
                 CharacterFinished();
             }
         }
-    }
-
-    public void CheckIfGameHasEnded()
-    {
-        if (TeamManager.Instance.playerTeam.Count == 0)
-        {
-            Debug.Log("You LOST");
-            isGameOver = true;
-            ActionUIManager.Instance.SetCanvasActive(false);
-            SceneManager.LoadScene("FirstBattle");
-        }
-        else if (TeamManager.Instance.enemyTeam.Count == 0)
-        {
-            Debug.Log("You WIN");
-            isGameOver = true;
-            ActionUIManager.Instance.SetCanvasActive(false);
-            StartCoroutine(UnlockNewSkillPage());
-        }
-    }
-    IEnumerator UnlockNewSkillPage()
-    {
-        unlockPage.SetActive(true);
-        yield return new WaitForSeconds(4);
-        unlockPage.SetActive(false);
-        SceneManager.LoadScene("FirstBattle");
     }
 }

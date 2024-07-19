@@ -21,10 +21,8 @@ MonoBehaviour:
   currentMana: 16
   physicalDefense: 7
   magicalDefense: 12
-  strength: 17
+  strength: 6
   intelligence: 16
   agility: 8
   abilities:
-  - {fileID: 11400000, guid: e683535b97fbe5241afbd791f371141b, type: 2}
-  - {fileID: 11400000, guid: b255f9c9b5980064b8f72f6d66f19d3a, type: 2}
-  - {fileID: 11400000, guid: 3c184deeb98109944a6e08cd576af4a0, type: 2}
+  - {fileID: 11400000, guid: d21902c84382e38428934de2ba4fdf2f, type: 2}
