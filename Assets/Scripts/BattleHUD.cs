@@ -44,7 +44,11 @@ public class BattleHUD : MonoBehaviour
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 buttonText.text = this.player.characterAttributes.abilities[i].Name;
+                Debug.Log($"Button with {buttonText.text} and index {i}");
+
+                // Capture the index to avoid closure issues
                 int abilityIndex = i;
+
                 abilityButtons[i].onClick.AddListener(() =>
                 {
                     Debug.Log($"Button with {this.player.characterAttributes.abilities[abilityIndex].Name} for {this.player.name}, index is {abilityIndex} clicked and size of abilities is {this.player.characterAttributes.abilities.Count}");
@@ -55,6 +59,8 @@ public class BattleHUD : MonoBehaviour
             }
             else
             {
+                TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+                buttonText.text = "?";
                 Debug.Log("Character does not have enough skills to assign to button " + i);
             }
         }
@@ -102,7 +108,7 @@ public class BattleHUD : MonoBehaviour
             {
                 Character currentCharacter = player;
                 int currentIndex = i;
-                abilityButtons[i].interactable = currentCharacter.characterAttributes.currentMana >= currentCharacter.characterAttributes.abilities[currentIndex].manaCost;
+                abilityButtons[i].interactable = currentCharacter.characterAttributes.currentMana >= currentCharacter.characterAttributes.abilities[currentIndex].ManaCost;
             }
         }
     }

@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2d7b8196ff876414c88c8c1df7e45f7a, type: 3}
   m_Name: LazySmash
   m_EditorClassIdentifier: Assembly-CSharp::LazySmash
+  Name: Lazy Smash
+  ManaCost: 5
+  Damage: 5
