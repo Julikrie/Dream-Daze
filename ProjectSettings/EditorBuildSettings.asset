@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SchoolOne.unity
     guid: 520159c10a1ef174898e518b62ed56be
+  - enabled: 1
+    path: Assets/Scenes/SecondBattle.unity
+    guid: d78e6a8c132473c40ac941b4e6f8446e
+  - enabled: 1
+    path: Assets/Scenes/ThirdBattle.unity
+    guid: b767bbc5aca908640853dbe5244ce40d
   m_configObjects: {}

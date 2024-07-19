@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject exitPortal;
     public string location;
 
     private AudioSource audioSource;
@@ -21,14 +19,9 @@ public class SceneLoader : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         StartCoroutine(PortalWarp());
-        StartCoroutine(ChangeLocation());
         audioSource.PlayOneShot(portalSound, portalWarpVolume);
     }
-    private IEnumerator ChangeLocation()
-    {
-        yield return new WaitForSeconds(1);
-        player.transform.position = exitPortal.transform.position + new Vector3(0, 1, 0);
-    }
+
     private IEnumerator PortalWarp()
     {
         yield return new WaitForSeconds(1);
