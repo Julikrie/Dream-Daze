@@ -12,6 +12,6 @@ public class CutsceneManager : MonoBehaviour
     IEnumerator EndCutScene()
     {
         yield return new WaitForSeconds(62);
-        SceneManager.LoadScene("School");
+        SceneManager.LoadScene("SchoolStart");
     }
 }

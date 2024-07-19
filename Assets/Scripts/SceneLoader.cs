@@ -6,6 +6,7 @@ public class SceneLoader : MonoBehaviour
 {
     public GameObject player;
     public GameObject exitPortal;
+    public string location;
 
     private AudioSource audioSource;
     public AudioClip portalSound;
@@ -33,7 +34,7 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         audioSource.PlayOneShot(portalSound, portalWarpVolume);
-        SceneManager.LoadScene("FirstBattle");
+        SceneManager.LoadScene(location);
 
     }
 }

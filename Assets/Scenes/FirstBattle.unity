@@ -9571,9 +9571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
-  character: {fileID: 1815601098}
   unlockedPage: {fileID: 1022983402}
-  unlockedAbility: {fileID: 11400000, guid: e683535b97fbe5241afbd791f371141b, type: 2}
+  location: SchoolOne
 --- !u!1 &1505006060
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameOver;
     public GameObject unlockedPage;
+    public string location;
 
     public static GameManager Instance { get; private set; }
 
@@ -45,8 +46,7 @@ public class GameManager : MonoBehaviour
         {
             unlockedPage.SetActive(true);
             yield return new WaitForSeconds(2.5f);
-            unlockedPage.SetActive(false);
-            SceneManager.LoadScene("FirstBattle");
+            SceneManager.LoadScene(location);
         }
     }
 }
