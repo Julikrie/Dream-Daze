@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Playables;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Character", menuName = "Character Class")]
@@ -7,7 +8,7 @@ public class CharacterAttributes : ScriptableObject
 {
     public string characterName;
     public string characterClass;
-    public string characterClassification;
+    public CharacterType characterType;
 
     //  public Sprite characterSprite;
 
@@ -23,4 +24,7 @@ public class CharacterAttributes : ScriptableObject
     public int strength;
     public int intelligence;
     public int agility;
+
+    public List<Ability> abilities = new List<Ability>();
+
 }

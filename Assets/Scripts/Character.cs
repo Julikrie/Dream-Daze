@@ -12,8 +12,6 @@ public class Character : MonoBehaviour
     public bool isDead;
     public Action<Character> tookDamage;
 
-    public List<IHeroAbility> abilities;
-
     public MovementStateMachine movementStateMachine { get; private set; }
     public CharacterStateMachine characterStateMachine { get; private set; }
     public AttackStateMachine attackStateMachine { get; private set; }
@@ -31,18 +29,13 @@ public class Character : MonoBehaviour
         characterAttributes.currentHealth = characterAttributes.maxHealth;
         characterAttributes.currentMana = characterAttributes.maxMana;
 
-        abilities = new List<IHeroAbility>();
-        abilities.Add(new Cleave());
-        abilities.Add(new HeroicBuff());
-        abilities.Add(new PokeEye());
-        abilities.Add(new HighKick());
 
         var gridPosition = GridManager.Instance.GetGridFromWorldPosition(gameObject.transform.position);
         var gridCell = GridManager.Instance.GetGridCell(gridPosition);
         if (gridCell != null)
         {
             gridCell.occupant = gameObject;
-            gameObject.transform.position = GridManager.Instance.GetWorldFromCellPosition(gridCell);
+            gameObject.transform.position = GridManager.Instance.GetWorldFromCellPosition(gridCell) + new Vector3(0, 0.25f, 0);
         }
     }
 
@@ -78,7 +71,6 @@ public class Character : MonoBehaviour
         }
     }
 
-
     public void SpendMana(int manaCost)
     {
         if (characterAttributes.currentMana - manaCost <= 0)
@@ -95,7 +87,10 @@ public class Character : MonoBehaviour
 
     public void BasicAttack(Character other)
     {
-        other.TakeDamage(characterAttributes.strength / 2);
+        float effectivness = RockPaperScissor.GetEffectiveness(this, other); Debug.Log("Hallo");
+        Debug.Log(characterAttributes.strength / 2);
+        Debug.Log(Mathf.RoundToInt(effectivness * (characterAttributes.strength / 2)));
+        other.TakeDamage(Mathf.RoundToInt(effectivness *(characterAttributes.strength / 2)));
     }
 
 

@@ -44,7 +44,7 @@ public class MovementController : MonoBehaviour
         pathPoints.Clear();
         foreach (var cell in path)
         {
-            Vector3 worldPos = GridManager.Instance.GetWorldFromCellPosition(cell);
+            Vector3 worldPos = GridManager.Instance.GetWorldFromCellPosition(cell) + new Vector3(0, 0.25f, 0);
             pathPoints.Enqueue(worldPos);
         }
         MoveAlongPath();

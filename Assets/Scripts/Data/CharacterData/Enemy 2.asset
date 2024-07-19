@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Enemybert
   characterClass: Enemy
-  characterClassification: Stone
+  characterClassification: 2
   maxHealth: 17
   currentHealth: 17
   maxMana: 16

@@ -40,15 +40,15 @@ public class BattleHUD : MonoBehaviour
 
         for (int i = 0; i < abilityButtons.Length; i++)
         {
-            if (i < this.player.abilities.Count)
+            if (i < this.player.characterAttributes.abilities.Count)
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                buttonText.text = this.player.abilities[i].Name;
+                buttonText.text = this.player.characterAttributes.abilities[i].Name;
                 int abilityIndex = i;
                 abilityButtons[i].onClick.AddListener(() =>
                 {
-                    Debug.Log($"Button with {this.player.abilities[abilityIndex].Name} for {this.player.name}, index is {abilityIndex} clicked and size of abilities is {this.player.abilities.Count}");
-                    player.abilities[abilityIndex].Use(this.player, this.enemy);
+                    Debug.Log($"Button with {this.player.characterAttributes.abilities[abilityIndex].Name} for {this.player.name}, index is {abilityIndex} clicked and size of abilities is {this.player.characterAttributes.abilities.Count}");
+                    player.characterAttributes.abilities[abilityIndex].Use(this.player, this.enemy);
                     BattleManager.Instance.StartEnemyTurn();
                     DisableButtonIfManaTooLow();
                 });
@@ -98,11 +98,11 @@ public class BattleHUD : MonoBehaviour
     {
         for (int i = 0; i < abilityButtons.Length; i++)
         {
-            if (i < player.abilities.Count)
+            if (i < player.characterAttributes.abilities.Count)
             {
                 Character currentCharacter = player;
                 int currentIndex = i;
-                abilityButtons[i].interactable = currentCharacter.characterAttributes.currentMana >= currentCharacter.abilities[currentIndex].manaCost;
+                abilityButtons[i].interactable = currentCharacter.characterAttributes.currentMana >= currentCharacter.characterAttributes.abilities[currentIndex].manaCost;
             }
         }
     }

@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: Enemy 3
+  m_Name: SoldierData
   m_EditorClassIdentifier: 
-  characterName: Enemybert
-  characterClass: Enemy
-  characterClassification: Stone
-  maxHealth: 16
-  currentHealth: 16
+  characterName: Herobert
+  characterClass: Hero
+  characterType: 0
+  maxHealth: 32
+  currentHealth: 32
   maxMana: 16
   currentMana: 16
   physicalDefense: 12
   magicalDefense: 8
-  strength: 10
+  strength: 23
   intelligence: 9
   agility: 10
+  abilities:
+  - {fileID: 11400000, guid: 77d46ba68b18dd94fb92fbaa0b3f8c29, type: 2}

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: HeroData
+  m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  characterName: Herobert
-  characterClass: Hero
-  characterClassification: Scissor
-  maxHealth: 32
-  currentHealth: 22
+  characterName: Enemybert
+  characterClass: Enemy
+  characterType: 2
+  maxHealth: 20
+  currentHealth: 20
   maxMana: 16
   currentMana: 16
   physicalDefense: 12
   magicalDefense: 8
-  strength: 23
+  strength: 16
   intelligence: 9
   agility: 10

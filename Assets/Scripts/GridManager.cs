@@ -87,7 +87,7 @@ public class GridManager : MonoBehaviour
         // Convert from Grid to World coordinates
         Vector3 worldPosition = tileMap.CellToWorld((Vector3Int)cellPosition);
         // Get Center of Tile
-        return worldPosition + new Vector3(tileMap.cellSize.x / 2, tileMap.cellSize.y / 2, 0);
+        return worldPosition + new Vector3(tileMap.cellSize.x / 2, tileMap.cellSize.y / 2 , 0);
     }
 
 
