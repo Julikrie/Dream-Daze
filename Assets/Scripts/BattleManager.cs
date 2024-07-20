@@ -38,7 +38,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerTurn()
     {
         battleHUD.SetButtonsContainer(true);
-
+        Debug.Log($"Is player dead? {this.enemy.GetComponent<Character>().isDead}");
         //Wenn Spieler Dead, beenden und nach dem Kampf Player charakter löschen
         if (this.player.GetComponent<Character>().isDead)
         {
@@ -49,7 +49,7 @@ public class BattleManager : MonoBehaviour
         {
             //TODO: PlayerBuffs/Debuffs runterzählen und entfernen
             Debug.Log("PLAYER TURN");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
     }
     IEnumerator EnemyTurn()
@@ -58,7 +58,7 @@ public class BattleManager : MonoBehaviour
 
         Character enemyCharacter = this.enemy.GetComponent<Character>();
         Character playerCharacter = this.player.GetComponent<Character>();
-
+        Debug.Log($"Is enemy dead? {this.enemy.GetComponent<Character>().isDead}");
         //Wenn Enemy Dead, beenden und Player charakter löschen
         if (this.enemy.GetComponent<Character>().isDead)
         {
@@ -68,9 +68,9 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("ENEMY TURN");
-            yield return new WaitForSeconds(1.5f);
-            enemyCharacter.BasicAttack(playerCharacter);
             yield return new WaitForSeconds(0.5f);
+            enemyCharacter.BasicAttack(playerCharacter);
+            yield return new WaitForSeconds(2f);
             //TODO: EnemyBuffs/Debuffs runterzählen und entfernen
             ChangeState(BattleState.PlayerTurn);
             StartCoroutine(PlayerTurn());
@@ -133,11 +133,14 @@ public class BattleManager : MonoBehaviour
         Vector2 characterPosition;
         if (TeamManager.Instance.IsPlayerCharacter(currentCharacter.GetComponent<Character>()))
         {
-            characterPosition = new Vector2(-3f, -1f);
+            characterPosition = new Vector2(-4.2f, 0.4f);
+            currentCharacter.transform.localScale = new Vector3(2, 2, 1);
         }
         else
         {
-            characterPosition = new Vector2(3f, -1f);
+            characterPosition = new Vector2(5.4f, 0.3f);
+            currentCharacter.transform.localScale = new Vector3(-2, 2, 1);
+
         }
         RectTransform characterTransform = currentCharacter.GetComponent<RectTransform>();
         characterTransform.anchoredPosition = characterPosition;
@@ -147,6 +150,7 @@ public class BattleManager : MonoBehaviour
     private void ReturnCharactersFromBattle(GameObject currentCharacter, Vector2 oldPosition)
     {
         currentCharacter.transform.position = oldPosition;
+        currentCharacter.transform.localScale = new Vector3(1, 1, 1);
         SpriteRenderer characterLayer = currentCharacter.GetComponent<SpriteRenderer>();
         characterLayer.sortingOrder = 0;
     }
