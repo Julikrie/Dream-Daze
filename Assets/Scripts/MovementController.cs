@@ -62,6 +62,7 @@ public class MovementController : MonoBehaviour
                 // Move to next Tile
                 Vector3 moveDirection = (targetPosition - transform.position).normalized;
                 transform.position += moveDirection * 5 * Time.deltaTime;
+                GetComponent<Character>().Flip(moveDirection);
             }
             else
             {

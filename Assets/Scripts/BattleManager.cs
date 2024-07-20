@@ -68,7 +68,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("ENEMY TURN");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
             enemyCharacter.BasicAttack(playerCharacter);
             yield return new WaitForSeconds(0.5f);
             //TODO: EnemyBuffs/Debuffs runterzählen und entfernen

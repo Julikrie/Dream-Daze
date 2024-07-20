@@ -26,3 +26,4 @@ MonoBehaviour:
   agility: 14
   abilities:
   - {fileID: 11400000, guid: b255f9c9b5980064b8f72f6d66f19d3a, type: 2}
+  basicAttack: {fileID: 11400000, guid: d35a5cb842a3fb047ab9f9fd4425cf4e, type: 2}

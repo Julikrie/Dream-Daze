@@ -19,17 +19,20 @@ public class MovementStateMachine
     private bool isEnabled;
     public event Action FinishedPlayer;
     public event Action FinishedAI;
+    private Animator animator;
 
 
 
-    public MovementStateMachine(Character character, MovementController movementController)
+    public MovementStateMachine(Character character, MovementController movementController, Animator animator)
     {
         this.character = character;
         this.movementController = movementController;
+        this.animator = animator;
         // Is player turn active?
         isEnabled = false;
         currentState = MovementState.Selection;
         allowedCells = new List<GridCell>();
+        this.animator = animator;
     }
     public void ChangeState(MovementState state)
     {
@@ -77,7 +80,15 @@ public class MovementStateMachine
                     {
                         TileSelector.Instance.ClearMovementMarkers();
                         ActionUIManager.Instance.DisableMoveButton();
-                        movementController.MoveTo(gridCell.position,() => ActionUIManager.Instance.SetCanvasActive(true));
+
+                        animator.SetBool("isMoving", true);
+
+                        movementController.MoveTo(gridCell.position, () => {
+
+                            ActionUIManager.Instance.SetCanvasActive(true);
+                            animator.SetBool("isMoving", false);
+
+                        });
                         ChangeState(MovementState.Finished);
                     }
                 }
@@ -118,7 +129,11 @@ public class MovementStateMachine
                     if (targetCell != null)
                     {
                         bool hasMoved = false;
-                        movementController.MoveTo(targetCell.position, () => hasMoved = true);
+                        animator.SetBool("isMoving", true);
+                        movementController.MoveTo(targetCell.position, () => {
+                            hasMoved = true;
+                            animator.SetBool("isMoving", false);
+                        });
                         yield return new WaitUntil(() => hasMoved);
                     }
                 }

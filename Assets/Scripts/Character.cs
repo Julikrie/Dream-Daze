@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -11,6 +12,8 @@ public class Character : MonoBehaviour
     public Sprite sprite;
     public bool isDead;
     public Action<Character> tookDamage;
+    public AnimationClip hurtAnimation;
+    public AudioClip hurtSound;
 
     public MovementStateMachine movementStateMachine { get; private set; }
     public CharacterStateMachine characterStateMachine { get; private set; }
@@ -19,7 +22,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         MovementController movementController = GetComponent<MovementController>();
-        movementStateMachine = new MovementStateMachine(this, movementController);
+        movementStateMachine = new MovementStateMachine(this, movementController, GetComponent<Animator>());
         attackStateMachine = new AttackStateMachine(this);
         characterStateMachine = new CharacterStateMachine(movementStateMachine, attackStateMachine);
     }
@@ -87,10 +90,7 @@ public class Character : MonoBehaviour
 
     public void BasicAttack(Character other)
     {
-        float effectivness = RockPaperScissor.GetEffectiveness(this, other); Debug.Log("Hallo");
-        Debug.Log(characterAttributes.strength / 2);
-        Debug.Log(Mathf.RoundToInt(effectivness * (characterAttributes.strength / 2)));
-        other.TakeDamage(Mathf.RoundToInt(effectivness *(characterAttributes.strength / 2)));
+        characterAttributes.basicAttack.Use(this, other);
     }
  
     private void OnDestroy()
@@ -105,5 +105,17 @@ public class Character : MonoBehaviour
         this.characterStateMachine.ChangeState(CharacterState.Wait);
         TeamManager.Instance.RemoveCharacter(this);
         TurnManager.Instance.RemoveCharacter(this);
+    }
+    public void Flip(Vector2 direction)
+    {
+        Debug.Log(direction.x);
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }

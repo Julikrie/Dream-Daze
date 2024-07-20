@@ -26,5 +26,6 @@ public class CharacterAttributes : ScriptableObject
     public int agility;
 
     public List<Ability> abilities = new List<Ability>();
+    public Ability basicAttack;
 
 }
