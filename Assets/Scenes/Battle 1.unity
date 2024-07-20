@@ -7334,7 +7334,7 @@ GameObject:
   - component: {fileID: 787111527}
   - component: {fileID: 787111526}
   m_Layer: 0
-  m_Name: SlimeEnemy (1)
+  m_Name: SlimeEnemy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7356,7 +7356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.7780124, y: -2.65}
+  m_AnchoredPosition: {x: 3.53, y: -1.74}
   m_SizeDelta: {x: 6.25, y: 6.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &787111526
@@ -7488,7 +7488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b5656fe2dcbbe44a67c4ba4f26c245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAttributes: {fileID: 11400000, guid: bbaa26428bdaaf145b1a0fb1c5833c62, type: 2}
+  characterAttributes: {fileID: 11400000, guid: 8a22ec60c072df74f96407b76b9bd969, type: 2}
   movementRange: 2
   attackRange: 1
   sprite: {fileID: -1242923097, guid: 43a002d673603814ca88864634eef5de, type: 3}
@@ -8145,7 +8145,7 @@ GameObject:
   - component: {fileID: 942090162}
   - component: {fileID: 942090161}
   m_Layer: 0
-  m_Name: SlimeEnemy
+  m_Name: SlimeEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11192,7 +11192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAttributes: {fileID: 11400000, guid: 31b80f4d2b3ac9e48ba3243b0b189c00, type: 2}
-  movementRange: 5
+  movementRange: 3
   attackRange: 3
   sprite: {fileID: 255657869, guid: 111566b95b8a1904fa13f77fb7df5bb3, type: 3}
   isDead: 0
