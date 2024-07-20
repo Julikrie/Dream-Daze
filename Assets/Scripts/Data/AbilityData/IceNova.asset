@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Ice Nova
   ManaCost: 3
   Damage: 5
+  AbilityAnimation: {fileID: 7400000, guid: 20e08167c52b4224a9c34ee2616a0407, type: 2}

@@ -9715,6 +9715,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1120355553}
+    - target: {fileID: 2806365271537164410, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
+      propertyPath: location
+      value: Battle 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4216034462540721500, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.56

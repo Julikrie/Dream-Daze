@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 1345277372}
     - target: {fileID: 2806365271537164410, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
       propertyPath: location
-      value: SecondBattle
+      value: Battle 2
       objectReference: {fileID: 0}
     - target: {fileID: 4216034462540721500, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
       propertyPath: m_LocalPosition.x

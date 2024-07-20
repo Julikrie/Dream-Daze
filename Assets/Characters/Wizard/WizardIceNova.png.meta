@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0dbce18197737f049a4097ee813158a0
+guid: 2deef5012bf723e4fa57f8bbf3b06472
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WizardFireball_0
+      name: WizardIceNova_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ec5964aef13914489ac68e5ccde3a34
-      internalID: 1118582818
+      spriteID: f9fe769527bf0154caee7b6037bcb934
+      internalID: 958298046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_1
+      name: WizardIceNova_1
       rect:
         serializedVersion: 2
         x: 100
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf4505a95caeea4e9682e177919bc55
-      internalID: 1950110061
+      spriteID: 8d11398512cf8a344a5141329e8178c3
+      internalID: 2111476164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_2
+      name: WizardIceNova_2
       rect:
         serializedVersion: 2
         x: 200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b76d0f6a6c1a58f45ba2b25e0a670713
-      internalID: -1638528912
+      spriteID: 6065e84adb0d4254c9084f3553ee7236
+      internalID: -1970981510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_3
+      name: WizardIceNova_3
       rect:
         serializedVersion: 2
         x: 300
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba4dabb597c34094db61bff3059d2cc5
-      internalID: -261128873
+      spriteID: 275a88ab7ddee1c47bb17d3cd3fa9a85
+      internalID: 21450955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_4
+      name: WizardIceNova_4
       rect:
         serializedVersion: 2
         x: 400
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4154509bf3ec8b548a2631d81ddbb73c
-      internalID: -1464370758
+      spriteID: 9a921a0269a22ee4e9f1e96b60bf0395
+      internalID: 1048638179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_5
+      name: WizardIceNova_5
       rect:
         serializedVersion: 2
         x: 500
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d829d57e7e8c1540bee517eb5176155
-      internalID: 237809434
+      spriteID: 8701f32a3a90b814299e42a74eaf7274
+      internalID: -1505317651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardFireball_6
+      name: WizardIceNova_6
       rect:
         serializedVersion: 2
         x: 600
@@ -263,8 +263,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa903f4093945af49beedbcff08a0d0f
-      internalID: 2111786913
+      spriteID: 810c4c341e8a5b046806b943114f3ef9
+      internalID: -1186169418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee65e22072a96aa4c83de3d4e4c53489
+      internalID: -1721045389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841b31410208b364c970e0ba47f54da7
+      internalID: 808040336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1c92197835a564cad70f898ba21a4a
+      internalID: -1166266224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 167a5022c4d9ba6468adfff95ac353e8
+      internalID: 576104074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_11
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eda7d7a2191fd84ead864b880df07ca
+      internalID: 335746489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_12
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952b2648f80607f4b9c193f94b7bed2e
+      internalID: -17994511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_13
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246d431240cd6ee4bb1f19f27551192f
+      internalID: -1880355698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardIceNova_14
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05738a35821e1c34bb346ff226c2e532
+      internalID: 1526094053
       vertices: []
       indices: 
       edges: []
@@ -280,13 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WizardFireball_0: 1118582818
-      WizardFireball_1: 1950110061
-      WizardFireball_2: -1638528912
-      WizardFireball_3: -261128873
-      WizardFireball_4: -1464370758
-      WizardFireball_5: 237809434
-      WizardFireball_6: 2111786913
+      WizardIceNova_0: 958298046
+      WizardIceNova_1: 2111476164
+      WizardIceNova_10: 576104074
+      WizardIceNova_11: 335746489
+      WizardIceNova_12: -17994511
+      WizardIceNova_13: -1880355698
+      WizardIceNova_14: 1526094053
+      WizardIceNova_2: -1970981510
+      WizardIceNova_3: 21450955
+      WizardIceNova_4: 1048638179
+      WizardIceNova_5: -1505317651
+      WizardIceNova_6: -1186169418
+      WizardIceNova_7: -1721045389
+      WizardIceNova_8: 808040336
+      WizardIceNova_9: -1166266224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
