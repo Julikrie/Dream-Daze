@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: SoldierData
+  m_Name: SoldierData 2
   m_EditorClassIdentifier: 
   characterName: Herobert
   characterClass: Hero
@@ -19,11 +19,7 @@ MonoBehaviour:
   currentHealth: 32
   maxMana: 16
   currentMana: 16
-  physicalDefense: 12
-  magicalDefense: 8
-  strength: 23
-  intelligence: 9
-  agility: 10
   abilities:
   - {fileID: 11400000, guid: 77d46ba68b18dd94fb92fbaa0b3f8c29, type: 2}
+  - {fileID: 11400000, guid: 3c184deeb98109944a6e08cd576af4a0, type: 2}
   basicAttack: {fileID: 11400000, guid: c769dcf9d57d20d409d76d704281cc5e, type: 2}
