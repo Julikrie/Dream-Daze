@@ -17,14 +17,6 @@ public class CharacterAttributes : ScriptableObject
     public int maxMana;
     public int currentMana;
 
-    // public int physicalDamage;
-    // public int magicalDamage;
-    public int physicalDefense;
-    public int magicalDefense;
-    public int strength;
-    public int intelligence;
-    public int agility;
-
     public List<Ability> abilities = new List<Ability>();
     public Ability basicAttack;
 

@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: Enemy 1
+  m_Name: WizardData 2
   m_EditorClassIdentifier: 
-  characterName: Enemybert
-  characterClass: Enemy
-  characterType: 2
-  maxHealth: 20
-  currentHealth: 8
+  characterName: Dieter
+  characterClass: Mage
+  characterType: 1
+  maxHealth: 25
+  currentHealth: 9
   maxMana: 16
   currentMana: 16
-  physicalDefense: 12
-  magicalDefense: 8
-  strength: 16
-  intelligence: 9
-  agility: 10
-  abilities: []
-  basicAttack: {fileID: 11400000, guid: ba0a3c1ec74296b4babf9429db8cdf08, type: 2}
+  physicalDefense: 7
+  magicalDefense: 12
+  strength: 6
+  intelligence: 16
+  agility: 8
+  abilities:
+  - {fileID: 11400000, guid: d21902c84382e38428934de2ba4fdf2f, type: 2}
+  - {fileID: 11400000, guid: e683535b97fbe5241afbd791f371141b, type: 2}

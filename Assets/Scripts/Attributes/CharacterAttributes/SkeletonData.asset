@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: Enemy 2
+  m_Name: SkeletonData
   m_EditorClassIdentifier: 
   characterName: Enemybert
   characterClass: Enemy
-  characterClassification: 2
-  maxHealth: 17
-  currentHealth: 17
+  characterType: 2
+  maxHealth: 20
+  currentHealth: 8
   maxMana: 16
   currentMana: 16
   physicalDefense: 12
   magicalDefense: 8
-  strength: 10
+  strength: 16
   intelligence: 9
   agility: 10
+  abilities: []
+  basicAttack: {fileID: 11400000, guid: ba0a3c1ec74296b4babf9429db8cdf08, type: 2}
