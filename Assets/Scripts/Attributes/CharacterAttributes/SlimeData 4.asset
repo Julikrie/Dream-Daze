@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Enemybert
   characterClass: Enemy
-  characterType: 1
+  characterType: 0
   maxHealth: 10
   currentHealth: 10
   maxMana: 4

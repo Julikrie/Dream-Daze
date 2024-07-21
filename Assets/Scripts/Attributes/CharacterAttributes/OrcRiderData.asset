@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: OrcRiderData
   m_EditorClassIdentifier: 
-  characterName: Gwyn
-  characterClass: 
+  characterName: Thrand
+  characterClass: Boss
   characterType: 0
   maxHealth: 40
   currentHealth: 40

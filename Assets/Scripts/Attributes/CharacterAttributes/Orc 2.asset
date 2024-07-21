@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: Orc 2
   m_EditorClassIdentifier: 
-  characterName: 
-  characterClass: 
-  characterType: 0
+  characterName: Grunt
+  characterClass: Enemy
+  characterType: 2
   maxHealth: 18
   currentHealth: 18
   maxMana: 6
   currentMana: 6
   abilities: []
-  basicAttack: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: 9c3caade55ca3f741b8e740fb01c0342, type: 2}

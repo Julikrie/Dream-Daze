@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: Orc 1
   m_EditorClassIdentifier: 
-  characterName: 
-  characterClass: 
-  characterType: 0
+  characterName: Orcbert
+  characterClass: Enemy
+  characterType: 1
   maxHealth: 20
   currentHealth: 20
   maxMana: 6
