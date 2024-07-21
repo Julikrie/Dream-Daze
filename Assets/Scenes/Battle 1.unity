@@ -475,16 +475,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f534f208786e6c4da6106ff22d34eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSliderPlayer: {fileID: 0}
-  healthSliderEnemy: {fileID: 0}
+  healthSliderPlayer: {fileID: 243030165}
+  healthSliderEnemy: {fileID: 775009068}
   battleCanvas: {fileID: 41249973}
-  skillsContainer: {fileID: 0}
-  buttonsContainer: {fileID: 0}
+  skillsContainer: {fileID: 1044066390}
+  buttonsContainer: {fileID: 700456768}
   abilityButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 526197807}
+  - {fileID: 539215001}
 --- !u!1 &42070282
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,9 +627,9 @@ RectTransform:
   - {fileID: 794930435}
   m_Father: {fileID: 1396642772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -16.666668}
   m_SizeDelta: {x: 100, y: 33.333336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132191961
@@ -7322,9 +7320,9 @@ RectTransform:
   - {fileID: 1239378370}
   m_Father: {fileID: 1014149403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -35}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771840302
@@ -7371,7 +7369,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 41249978}
         m_TargetAssemblyTypeName: BattleHUD, Assembly-CSharp
         m_MethodName: OnBasicAttackButton
         m_Mode: 1
@@ -7789,9 +7787,9 @@ RectTransform:
   - {fileID: 1563506552}
   m_Father: {fileID: 1396642772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -85.33334}
   m_SizeDelta: {x: 100, y: 33.333336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &814220510
@@ -8587,8 +8585,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 375165996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8740,7 +8738,7 @@ RectTransform:
   m_Father: {fileID: 1006545829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8815,9 +8813,9 @@ RectTransform:
   - {fileID: 8543355}
   m_Father: {fileID: 1014149403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -65}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070947932
@@ -8864,7 +8862,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 41249978}
         m_TargetAssemblyTypeName: BattleHUD, Assembly-CSharp
         m_MethodName: OnSkillsButton
         m_Mode: 1
@@ -9110,9 +9108,9 @@ RectTransform:
   - {fileID: 1445561889}
   m_Father: {fileID: 1396642772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -51.000004}
   m_SizeDelta: {x: 100, y: 33.333336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1144466544
@@ -9410,7 +9408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1179400345
 Transform:
   m_ObjectHideFlags: 0
@@ -9724,8 +9722,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 42070283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10853,7 +10851,7 @@ RectTransform:
   m_Father: {fileID: 167143266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11613,7 +11611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterAttributes: {fileID: 11400000, guid: 31b80f4d2b3ac9e48ba3243b0b189c00, type: 2}
   movementRange: 3
-  attackRange: 3
+  attackRange: 20
   sprite: {fileID: 255657869, guid: 111566b95b8a1904fa13f77fb7df5bb3, type: 3}
   isDead: 0
   hurtAnimation: {fileID: 7400000, guid: 0fda30c1eb41e514c821d75955a34480, type: 2}

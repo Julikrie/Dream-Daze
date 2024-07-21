@@ -60,6 +60,7 @@ public class BattleManager : MonoBehaviour
         Character playerCharacter = this.player.GetComponent<Character>();
         Debug.Log($"Is enemy dead? {this.enemy.GetComponent<Character>().isDead}");
         //Wenn Enemy Dead, beenden und Player charakter löschen
+        yield return new WaitForSeconds(2f);
         if (this.enemy.GetComponent<Character>().isDead)
         {
             ChangeState(BattleState.End);
@@ -68,7 +69,6 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("ENEMY TURN");
-            yield return new WaitForSeconds(0.5f);
             enemyCharacter.BasicAttack(playerCharacter);
             yield return new WaitForSeconds(2f);
             //TODO: EnemyBuffs/Debuffs runterzählen und entfernen
