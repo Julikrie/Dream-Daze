@@ -55,6 +55,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         battleHUD.SetButtonsContainer(false);
+        battleHUD.SetSkillsContainer(false);
 
         Character enemyCharacter = this.enemy.GetComponent<Character>();
         Character playerCharacter = this.player.GetComponent<Character>();

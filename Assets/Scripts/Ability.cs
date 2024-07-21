@@ -23,7 +23,7 @@ public class Ability : ScriptableObject
             animatorDefender = other.GetComponent<Animator>();
             AudioSource audioSource = other.GetComponent<AudioSource>();
 
-            if (animatorAttacker != null)
+            if (animatorAttacker != null && animatorDefender != null)
             {
                 animatorAttacker.Play(AbilityAnimation.name);
                 animatorDefender.Play(other.hurtAnimation.name);

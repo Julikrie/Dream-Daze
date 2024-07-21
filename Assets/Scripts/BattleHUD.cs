@@ -32,6 +32,7 @@ public class BattleHUD : MonoBehaviour
         this.enemy.tookDamage += UpdateSlider;
 
         skillsContainer.SetActive(false);
+        showSkillContainer = false;
 
         Debug.Log($"Enemy has health {this.enemy.characterAttributes.currentHealth}");
         Debug.Log($"Player has health {this.player.characterAttributes.currentHealth}");
@@ -99,6 +100,12 @@ public class BattleHUD : MonoBehaviour
     public void SetButtonsContainer(bool isActive)
     {
         buttonsContainer.SetActive(isActive);
+    }
+
+    public void SetSkillsContainer(bool isActive)
+    {
+        showSkillContainer = isActive;
+        skillsContainer.SetActive(isActive);
     }
     private void DisableButtonIfManaTooLow()
     {
