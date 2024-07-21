@@ -48,7 +48,7 @@ public class Pathfinder : MonoBehaviour
 
             foreach (GridCell neighbor in GridManager.Instance.GetNeighbors(currentCell))
             {
-                if (!neighbor.isWalkable || closedSet.Contains(neighbor))
+                if (!GridManager.Instance.IsWalkable(neighbor) || closedSet.Contains(neighbor))
                     continue;
                 int newMovementCostToNeighbor = currentCell.gCost + neighbor.movementCost;
                 if (newMovementCostToNeighbor < neighbor.gCost)

@@ -12,18 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: ArcherData
   m_EditorClassIdentifier: 
-  characterName: Legolas
+  characterName: Archibald
   characterClass: Archer
   characterType: 2
   maxHealth: 22
   currentHealth: 22
-  maxMana: 9
-  currentMana: 9
-  physicalDefense: 12
-  magicalDefense: 10
-  strength: 11
-  intelligence: 6
-  agility: 14
+  maxMana: 7
+  currentMana: 7
   abilities:
   - {fileID: 11400000, guid: b255f9c9b5980064b8f72f6d66f19d3a, type: 2}
   basicAttack: {fileID: 11400000, guid: d35a5cb842a3fb047ab9f9fd4425cf4e, type: 2}
