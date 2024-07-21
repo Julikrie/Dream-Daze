@@ -10367,7 +10367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   unlockedPage: {fileID: 1022983402}
-  location: School 1
+  location: School 2
   currentBattle: Battle 1
   pauseMenu: {fileID: 895151519}
 --- !u!1 &1515561147

@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: Skeleti
   characterClass: Enemy
   characterType: 2
-  maxHealth: 22
-  currentHealth: 22
+  maxHealth: 24
+  currentHealth: -2
   maxMana: 16
   currentMana: 16
   abilities: []

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LazySmash
   Name: Lazy Slash
   ManaCost: 3
-  Damage: 8
+  Damage: 7
   AbilityAnimation: {fileID: 7400000, guid: 65f705739dd19c046997d5e5c70efbc0, type: 2}
