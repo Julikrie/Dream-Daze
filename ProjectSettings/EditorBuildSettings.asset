@@ -6,11 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 990aed2090bebce4da99a206c5b2e141
+  - enabled: 1
+    path: Assets/Scenes/Guide.unity
+    guid: 44a9ff9428c5ece4ca52401f4035a522
+  - enabled: 1
     path: Assets/Scenes/StartCutScene.unity
     guid: 04ebc81fc853e584d90fbe5ea003ce81
   - enabled: 1
     path: Assets/Scenes/School 1.unity
     guid: 440b708cdf2de5349815ea19082497ad
+  - enabled: 1
+    path: Assets/Scenes/Battle 1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/School 2.unity
     guid: 108ed9b8a995e7e459ac84b32fc61495
@@ -24,15 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle 3.unity
     guid: 6641ab041e6ad8d49819ce5e0e31c5bd
   - enabled: 1
-    path: Assets/Scenes/Guide.unity
-    guid: 44a9ff9428c5ece4ca52401f4035a522
-  - enabled: 1
     path: Assets/Scenes/EndCutscene.unity
     guid: 59461b282b0dd814388ac8e36014b403
-  - enabled: 1
-    path: Assets/Scenes/Battle 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 990aed2090bebce4da99a206c5b2e141
   m_configObjects: {}

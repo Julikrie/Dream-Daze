@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Playables;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Character", menuName = "Character Class")]
