@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &113399544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5410,6 +5410,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.0422735, y: -6.2823076, z: -0.06060648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &406379470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406379472}
+  - component: {fileID: 406379471}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &406379471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406379470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfbe81269e249a448b625bbff66acd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &406379472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406379470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5145824, y: 3.1587844, z: -0.11169856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12163,6 +12207,14 @@ PlayableDirector:
     value: {fileID: 113399545}
   - key: {fileID: -7881959279098245449, guid: b61fa4f8a94cbe74eb37f8ab27db7e20, type: 2}
     value: {fileID: 714683405}
+  - key: {fileID: 1281925340711698179, guid: b61fa4f8a94cbe74eb37f8ab27db7e20, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4688976178338432954, guid: b61fa4f8a94cbe74eb37f8ab27db7e20, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1392800715983910859, guid: b61fa4f8a94cbe74eb37f8ab27db7e20, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7185549831871204591, guid: b61fa4f8a94cbe74eb37f8ab27db7e20, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1916191292
@@ -16500,3 +16552,4 @@ SceneRoots:
   - {fileID: 1028351310}
   - {fileID: 738029462}
   - {fileID: 476229416}
+  - {fileID: 406379472}
