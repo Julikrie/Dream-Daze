@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: SlimeData 1
+  m_Name: SoldierData 2
   m_EditorClassIdentifier: 
-  characterName: Slimo
-  characterClass: Enemy
+  characterName: Edwin
+  characterClass: Soldier
   characterType: 0
-  maxHealth: 13
-  currentHealth: 13
-  maxMana: 4
-  currentMana: 4
-  abilities: []
-  basicAttack: {fileID: 11400000, guid: 5781629788acc0b4f983f2486cf9f475, type: 2}
+  maxHealth: 29
+  currentHealth: 29
+  maxMana: 7
+  currentMana: 7
+  abilities:
+  - {fileID: 11400000, guid: 77d46ba68b18dd94fb92fbaa0b3f8c29, type: 2}
+  - {fileID: 11400000, guid: 3c184deeb98109944a6e08cd576af4a0, type: 2}
+  basicAttack: {fileID: 11400000, guid: c769dcf9d57d20d409d76d704281cc5e, type: 2}

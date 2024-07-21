@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: SlimeData 4
+  m_Name: ArcherData
   m_EditorClassIdentifier: 
-  characterName: Enemybert
-  characterClass: Enemy
-  characterType: 0
-  maxHealth: 10
-  currentHealth: 10
-  maxMana: 4
-  currentMana: 4
-  abilities: []
-  basicAttack: {fileID: 11400000, guid: 5781629788acc0b4f983f2486cf9f475, type: 2}
+  characterName: Archibald
+  characterClass: Archer
+  characterType: 2
+  maxHealth: 24
+  currentHealth: 24
+  maxMana: 9
+  currentMana: 9
+  abilities:
+  - {fileID: 11400000, guid: b255f9c9b5980064b8f72f6d66f19d3a, type: 2}
+  basicAttack: {fileID: 11400000, guid: d35a5cb842a3fb047ab9f9fd4425cf4e, type: 2}

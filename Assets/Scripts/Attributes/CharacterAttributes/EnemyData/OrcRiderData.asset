@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: ArcherData
+  m_Name: OrcRiderData
   m_EditorClassIdentifier: 
-  characterName: Archibald
-  characterClass: Archer
-  characterType: 2
-  maxHealth: 22
-  currentHealth: 22
-  maxMana: 7
-  currentMana: 7
-  abilities:
-  - {fileID: 11400000, guid: b255f9c9b5980064b8f72f6d66f19d3a, type: 2}
-  basicAttack: {fileID: 11400000, guid: d35a5cb842a3fb047ab9f9fd4425cf4e, type: 2}
+  characterName: Thrand
+  characterClass: Boss
+  characterType: 0
+  maxHealth: 42
+  currentHealth: 42
+  maxMana: 12
+  currentMana: 12
+  abilities: []
+  basicAttack: {fileID: 11400000, guid: 54751ea3d05928744828f664f950c74b, type: 2}

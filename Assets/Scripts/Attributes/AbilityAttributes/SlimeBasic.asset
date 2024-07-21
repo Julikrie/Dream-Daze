@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   ManaCost: 0
-  Damage: 3
+  Damage: 4
   AbilityAnimation: {fileID: 7400000, guid: 397f0ac676adda74eb833b8536c1d03b, type: 2}

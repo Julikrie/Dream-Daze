@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: Calcium
   characterClass: Enemy
   characterType: 2
-  maxHealth: 17
-  currentHealth: 17
+  maxHealth: 21
+  currentHealth: 21
   maxMana: 16
   currentMana: 16
   abilities: []

@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
-  m_Name: SoldierData 1
+  m_Name: WizardData 2
   m_EditorClassIdentifier: 
-  characterName: Edwin
-  characterClass: Soldier
-  characterType: 0
-  maxHealth: 32
-  currentHealth: 32
+  characterName: Mary
+  characterClass: Wizard
+  characterType: 1
+  maxHealth: 21
+  currentHealth: 21
   maxMana: 16
   currentMana: 16
   abilities:
-  - {fileID: 11400000, guid: 77d46ba68b18dd94fb92fbaa0b3f8c29, type: 2}
-  basicAttack: {fileID: 11400000, guid: c769dcf9d57d20d409d76d704281cc5e, type: 2}
+  - {fileID: 11400000, guid: d21902c84382e38428934de2ba4fdf2f, type: 2}
+  - {fileID: 11400000, guid: e683535b97fbe5241afbd791f371141b, type: 2}
+  basicAttack: {fileID: 11400000, guid: 2238aef8f3cf661478953dbd2fdc8b05, type: 2}

@@ -17,6 +17,11 @@ public class MenuManager : MonoBehaviour
 
     public void EnterGuide()
     {
+        SceneManager.LoadScene("Guide");
+    }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnergeticShot
   m_EditorClassIdentifier: Assembly-CSharp::EnergeticShot
   Name: Energetic Shot
-  ManaCost: 5
-  Damage: 5
+  ManaCost: 3
+  Damage: 8
   AbilityAnimation: {fileID: 7400000, guid: 7b22450a7250dd1498cc3466b7892e02, type: 2}
