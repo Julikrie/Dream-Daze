@@ -11704,7 +11704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAttributes: {fileID: 11400000, guid: 82d0be7a62c3ff64587bee3db07f3d3c, type: 2}
-  movementRange: 4
+  movementRange: 3
   attackRange: 4
   sprite: {fileID: -1413897716, guid: f0c08a476f005af4c9ce23f0bb12b66f, type: 3}
   isDead: 0
