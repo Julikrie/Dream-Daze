@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     public GameObject unlockedPage;
     public string location;
+    public string currentBattle;
+    public GameObject pauseMenu;
+
 
     public static GameManager Instance { get; private set; }
 
@@ -23,6 +26,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+        ActivatePauseMenu();
+    }
+
     public void CheckBattleEnded()
     {
         {
@@ -31,7 +44,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("You LOST");
                 isGameOver = true;
                 ActionUIManager.Instance.SetCanvasActive(false);
-                SceneManager.LoadScene("FirstBattle");
+                pauseMenu.SetActive(true);
             }
             else if (TeamManager.Instance.enemyTeam.Count == 0)
             {
@@ -42,11 +55,44 @@ public class GameManager : MonoBehaviour
 
             }
         }
-            IEnumerator UnlockNewSkillPage()
+   
+    }
+
+    IEnumerator UnlockNewSkillPage()
+    {
+        unlockedPage.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(location);
+    }
+
+    public void ActivatePauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            unlockedPage.SetActive(true);
-            yield return new WaitForSeconds(2.5f);
-            SceneManager.LoadScene(location);
+            { 
+                if (pauseMenu.activeSelf)
+                {
+                    pauseMenu.SetActive(false);
+                    Time.timeScale = 1f;
+                }
+                else
+                {
+                    pauseMenu.SetActive(true);
+                    Time.timeScale = 0f;
+                }
+            }
         }
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(currentBattle);
+    }
+
+    public void ToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
