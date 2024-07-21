@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     public Sprite sprite;
     public bool isDead;
     public Action<Character> tookDamage;
+    public Action<Character> spentMana;
     public AnimationClip hurtAnimation;
     public AudioClip hurtSound;
 
@@ -76,9 +77,10 @@ public class Character : MonoBehaviour
 
     public void SpendMana(int manaCost)
     {
-        if (characterAttributes.currentMana - manaCost <= 0)
+        if (characterAttributes.currentMana - manaCost >= 0)
         {
             characterAttributes.currentMana -= manaCost;
+            spentMana.Invoke(this);
         }
     }
 

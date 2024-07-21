@@ -73,6 +73,10 @@ public class MovementStateMachine
                 break;
 
             case MovementState.Movement:
+                if (Input.GetMouseButtonDown(1))
+                {
+                    allowedCells.Clear();
+                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();

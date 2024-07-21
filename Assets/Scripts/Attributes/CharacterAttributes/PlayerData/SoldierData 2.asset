@@ -17,8 +17,8 @@ MonoBehaviour:
   characterType: 0
   maxHealth: 29
   currentHealth: 29
-  maxMana: 7
-  currentMana: 7
+  maxMana: 8
+  currentMana: 8
   abilities:
   - {fileID: 11400000, guid: 77d46ba68b18dd94fb92fbaa0b3f8c29, type: 2}
   - {fileID: 11400000, guid: 3c184deeb98109944a6e08cd576af4a0, type: 2}

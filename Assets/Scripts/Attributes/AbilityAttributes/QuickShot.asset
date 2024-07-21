@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: QuickShot
   m_EditorClassIdentifier: Assembly-CSharp::PlatzhalterSkill
   Name: Quick Shot
-  ManaCost: 3
-  Damage: 7
+  ManaCost: 2
+  Damage: 6
   AbilityAnimation: {fileID: 7400000, guid: e39c5bc68ace34046962eca41a751d03, type: 2}

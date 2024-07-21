@@ -6,8 +6,9 @@ public class BattleHUD : MonoBehaviour
 {
     public Slider healthSliderPlayer;
     public Slider healthSliderEnemy;
-    //SPIELERNAME
-    //GEGNERNAME
+    public Slider manaSliderPlayer;
+    public Slider manaSliderEnemy;
+
     public GameObject battleCanvas;
     public GameObject skillsContainer;
     public GameObject buttonsContainer;
@@ -30,6 +31,8 @@ public class BattleHUD : MonoBehaviour
         this.enemy = enemy;
         this.player.tookDamage += UpdateSlider;
         this.enemy.tookDamage += UpdateSlider;
+        this.player.spentMana += UpdateManaSlider;
+        this.enemy.spentMana += UpdateManaSlider;
 
         skillsContainer.SetActive(false);
         showSkillContainer = false;
@@ -38,6 +41,8 @@ public class BattleHUD : MonoBehaviour
         Debug.Log($"Player has health {this.player.characterAttributes.currentHealth}");
         SetHealth(this.player, healthSliderPlayer);
         SetHealth(this.enemy, healthSliderEnemy);
+        SetMana(this.player, manaSliderPlayer);
+        SetMana(this.enemy, manaSliderEnemy);
 
         for (int i = 0; i < abilityButtons.Length; i++)
         {
@@ -73,11 +78,7 @@ public class BattleHUD : MonoBehaviour
         player.BasicAttack(enemy);
         BattleManager.Instance.StartEnemyTurn();
     }
-    public void OnDefendButton()
-    {
-        //player.Defend();
-        BattleManager.Instance.StartEnemyTurn();
-    }
+
     public void OnSkillsButton()
     {
         showSkillContainer = !showSkillContainer;
@@ -126,6 +127,12 @@ public class BattleHUD : MonoBehaviour
         slider.maxValue = characterAttributes.maxHealth;
         slider.value = characterAttributes.currentHealth;
     }
+    private void SetMana(Character character, Slider slider)
+    {
+        CharacterAttributes characterAttributes = character.characterAttributes;
+        slider.maxValue = characterAttributes.maxMana;
+        slider.value = characterAttributes.currentMana;
+    }
     private void UpdateSlider(Character character)
     {
         if (character == this.player)
@@ -135,6 +142,18 @@ public class BattleHUD : MonoBehaviour
         else
         {
             healthSliderEnemy.value = this.enemy.characterAttributes.currentHealth;
+        }
+    }
+
+    private void UpdateManaSlider(Character character)
+    {
+        if (character == this.player)
+        {
+            manaSliderPlayer.value = this.player.characterAttributes.currentMana;
+        }
+        else
+        {
+            manaSliderEnemy.value = this.enemy.characterAttributes.currentMana;
         }
     }
 }
