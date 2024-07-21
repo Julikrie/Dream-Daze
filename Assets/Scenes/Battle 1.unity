@@ -5741,7 +5741,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1709553703}
   m_FillRect: {fileID: 2095919709}
   m_HandleRect: {fileID: 1709553701}
@@ -9918,7 +9918,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2056434176}
   m_FillRect: {fileID: 614861283}
   m_HandleRect: {fileID: 2056434174}
@@ -10557,7 +10557,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 607056248}
   m_FillRect: {fileID: 1229175561}
   m_HandleRect: {fileID: 607056246}
@@ -15862,7 +15862,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 166298852}
   m_FillRect: {fileID: 1450665026}
   m_HandleRect: {fileID: 166298850}
@@ -16323,9 +16323,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3674218956649434554, guid: ac172129ee150434882fbe009acdf2f6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4854533191509070592, guid: ac172129ee150434882fbe009acdf2f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4854533191509070592, guid: ac172129ee150434882fbe009acdf2f6, type: 3}
       propertyPath: m_LocalPosition.y
