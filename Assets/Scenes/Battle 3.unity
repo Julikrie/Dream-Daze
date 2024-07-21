@@ -10113,7 +10113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   unlockedPage: {fileID: 1022983402}
-  location: SchoolOne
+  location: EndCutScene
 --- !u!1 &1505006060
 GameObject:
   m_ObjectHideFlags: 0
