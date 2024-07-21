@@ -1592,7 +1592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890136641873585472, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
       propertyPath: m_Name
-      value: PortalOneEnter
+      value: PortalTwoExit
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2806365271537164410, guid: a012d45a9e4a0a34a96be6e6d5db5912, type: 3}
@@ -17169,5 +17169,5 @@ SceneRoots:
   - {fileID: 1355227716}
   - {fileID: 1345277371}
   - {fileID: 1170746920}
-  - {fileID: 865217933}
   - {fileID: 1328998238}
+  - {fileID: 865217933}
