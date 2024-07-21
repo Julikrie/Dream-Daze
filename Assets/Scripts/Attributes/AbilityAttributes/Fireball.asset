@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
   Name: Fireball
   ManaCost: 3
-  Damage: 6
+  Damage: 7
   AbilityAnimation: {fileID: 7400000, guid: c2954c47ac6c5d94d96864f5ab509d11, type: 2}

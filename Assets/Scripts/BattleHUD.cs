@@ -46,6 +46,8 @@ public class BattleHUD : MonoBehaviour
 
         for (int i = 0; i < abilityButtons.Length; i++)
         {
+            abilityButtons[i].onClick.RemoveAllListeners();
+
             if (i < this.player.characterAttributes.abilities.Count)
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
