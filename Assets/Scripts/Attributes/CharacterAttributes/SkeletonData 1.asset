@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: SkeletonData 1
   m_EditorClassIdentifier: 
-  characterName: Enemybert
+  characterName: Skeleti
   characterClass: Enemy
   characterType: 2
   maxHealth: 18
-  currentHealth: 8
+  currentHealth: 18
   maxMana: 16
   currentMana: 16
   abilities: []

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23e3930926f344199be0baea22eeaf, type: 3}
   m_Name: SlimeData 1
   m_EditorClassIdentifier: 
-  characterName: Enemybert
+  characterName: Slimo
   characterClass: Enemy
-  characterType: 1
+  characterType: 0
   maxHealth: 13
   currentHealth: 13
   maxMana: 4
