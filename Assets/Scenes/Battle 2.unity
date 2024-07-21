@@ -9640,6 +9640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1998744295}
   - {fileID: 1206718574}
   - {fileID: 1022983403}
   - {fileID: 755581925}
@@ -16212,7 +16213,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 354753933}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -16238,7 +16239,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1898497571}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1179400345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17398,4 +17399,3 @@ SceneRoots:
   - {fileID: 1079961319}
   - {fileID: 2015684874}
   - {fileID: 1856484220}
-  - {fileID: 1998744295}
