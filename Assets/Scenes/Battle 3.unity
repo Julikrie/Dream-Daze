@@ -10643,7 +10643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicatorPrefab: {fileID: 7100625067266606770, guid: 1f64875dfd62b9a4b8209ff67f77ab0a, type: 3}
-  attackIndicatorPrefab: {fileID: -2253911629886400664, guid: 94ef57d0e9e20b74eb0a2b860a475e78, type: 3}
+  attackIndicatorPrefab: {fileID: 7100625067266606770, guid: fecef4934d4679f47af7cfef9c459993, type: 3}
 --- !u!1 &1540009460
 GameObject:
   m_ObjectHideFlags: 0
