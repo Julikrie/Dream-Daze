@@ -8,6 +8,8 @@ public class EndCutsceneManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+
         StartCoroutine(EndCutScene());
     }
     IEnumerator EndCutScene()

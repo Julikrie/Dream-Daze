@@ -11,6 +11,8 @@ public class MovementWorld : MonoBehaviour
     Vector2 movement;
     void Start()
     {
+        Cursor.visible = false;
+
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
