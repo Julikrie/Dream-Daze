@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
+
         pauseMenu.SetActive(false);
     }
 
