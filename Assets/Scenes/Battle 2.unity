@@ -10693,7 +10693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   unlockedPage: {fileID: 1022983402}
-  location: School 3
+  location: BossCutscene
   currentBattle: Battle 2
   pauseMenu: {fileID: 1998744291}
 --- !u!1 &1515561147
