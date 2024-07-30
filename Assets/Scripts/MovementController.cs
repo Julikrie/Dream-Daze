@@ -20,7 +20,6 @@ public class MovementController : MonoBehaviour
             GridCell startCell = GridManager.Instance.GetGridCell(transform.position);
             GridCell targetCell = GridManager.Instance.GetGridCell(targetGridPosition);
 
-            // Make sure the cells are valid
             if (startCell != null && targetCell != null)
             {
                 List<GridCell> path = Pathfinder.Instance.FindPath(startCell, targetCell);
@@ -29,15 +28,14 @@ public class MovementController : MonoBehaviour
                     SetPath(path);
                 }
                 // Looking if someone is on the Cell
-                // Move Object from start Cell to target Cell
                 startCell.occupant = null;
                 targetCell.occupant = gameObject;
 
-                // Invoke the callback if provided
                 this.onMoveCompleted = onMoveCompleted;
             }
         }
     }
+
     // Setting Path 
     private void SetPath(List<GridCell> path)
     {
@@ -49,6 +47,7 @@ public class MovementController : MonoBehaviour
         }
         MoveAlongPath();
     }
+
     // Walking the Path
     private void MoveAlongPath()
     {
@@ -73,9 +72,7 @@ public class MovementController : MonoBehaviour
         }
         else if (onMoveCompleted != null)
         {
-            // Invoke the callback when the path is completed
             onMoveCompleted.Invoke();
-            // Reset the callback after invoking
             onMoveCompleted = null;
         }
     }

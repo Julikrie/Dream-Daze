@@ -121,7 +121,7 @@ public class GridManager : MonoBehaviour
     }
     public GridCell GetNearestPlayerCell(GridCell aiCell)
     {
-        //Get the nearest Player to calculate to whom to move
+        //Get the nearest Player to calculate who to move to
         GridCell nearestPlayerCell = null;
         float minDistance = float.MaxValue;
 

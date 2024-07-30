@@ -26,8 +26,6 @@ public class BattleHUD : MonoBehaviour
     public void AssignPlayerInformation(Character player, Character enemy)
     {
         this.player = player;
-        Debug.Log($"Player name is {player.name}");
-        Debug.Log($"Enemy name is {enemy.name}");
         this.enemy = enemy;
         this.player.tookDamage += UpdateSlider;
         this.enemy.tookDamage += UpdateSlider;
@@ -37,8 +35,6 @@ public class BattleHUD : MonoBehaviour
         skillsContainer.SetActive(false);
         showSkillContainer = false;
 
-        Debug.Log($"Enemy has health {this.enemy.characterAttributes.currentHealth}");
-        Debug.Log($"Player has health {this.player.characterAttributes.currentHealth}");
         SetHealth(this.player, healthSliderPlayer);
         SetHealth(this.enemy, healthSliderEnemy);
         SetMana(this.player, manaSliderPlayer);
@@ -52,14 +48,12 @@ public class BattleHUD : MonoBehaviour
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 buttonText.text = this.player.characterAttributes.abilities[i].Name;
-                Debug.Log($"Button with {buttonText.text} and index {i}");
 
-                // Capture the index to avoid closure issues
+                // Need this because i is not remembered in Listener
                 int abilityIndex = i;
 
                 abilityButtons[i].onClick.AddListener(() =>
                 {
-                    Debug.Log($"Button with {this.player.characterAttributes.abilities[abilityIndex].Name} for {this.player.name}, index is {abilityIndex} clicked and size of abilities is {this.player.characterAttributes.abilities.Count}");
                     player.characterAttributes.abilities[abilityIndex].Use(this.player, this.enemy);
                     BattleManager.Instance.StartEnemyTurn();
                     DisableButtonIfManaTooLow();
@@ -69,7 +63,6 @@ public class BattleHUD : MonoBehaviour
             {
                 TextMeshProUGUI buttonText = abilityButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 buttonText.text = "?";
-                Debug.Log("Character does not have enough skills to assign to button " + i);
             }
         }
         DisableButtonIfManaTooLow();

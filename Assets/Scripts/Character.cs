@@ -63,15 +63,11 @@ public class Character : MonoBehaviour
         {
             this.characterAttributes.currentHealth -= damage;
             tookDamage.Invoke(this);
-            Debug.Log($"{this.characterAttributes.currentHealth} of {this.characterAttributes.maxHealth} health left. Just took {damage} damage!");
+
             if (this.characterAttributes.currentHealth <= 0)
             {
                 Die();
             }
-        }
-        else
-        {
-            Debug.LogError($"CharacterAttributes is null in TakeDamage method!");
         }
     }
 
@@ -86,7 +82,6 @@ public class Character : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log($"Just killed {gameObject.name}!");
         isDead = true;
     }
 
@@ -110,7 +105,6 @@ public class Character : MonoBehaviour
     }
     public void Flip(Vector2 direction)
     {
-        Debug.Log(direction.x);
         if (direction.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);

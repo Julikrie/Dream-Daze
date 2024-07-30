@@ -23,38 +23,6 @@ public class TileSelector : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //HighlightIndicator();
-    }
-
-    public GridCell HighlightIndicator()
-    {
-        if (!paused)
-        {
-            // Highlighting the Cell hovered over
-            GridCell gridCell = GridManager.Instance.GetGridCellFromMousePosition();
-            if (gridCell != null)
-            {
-                if (selector != null)
-                {
-                    Destroy(selector);
-                }
-                selector = Instantiate(indicatorPrefab, GridManager.Instance.GetWorldFromCellPosition(gridCell) + Vector3.back, Quaternion.identity);
-                return gridCell;
-            }
-        }
-        else
-        {
-            if (selector != null)
-            {
-                Destroy(selector);
-            }
-        }
-
-
-        return null;
-    }
     // Highlights Characters movement range
     public List<GridCell> HighlightMovementRange(Vector3 startPosition, int movementRange)
     {
@@ -72,6 +40,7 @@ public class TileSelector : MonoBehaviour
         return gridCells;
     }
 
+    // Highlights Characters attack range
     public List<GridCell> HighlightAttackRange(Vector3 startPosition, int attackRange)
     {
         ClearAttackMarkers();
@@ -98,6 +67,7 @@ public class TileSelector : MonoBehaviour
         movementMarkers.Clear();
     }
 
+    //clear highlighted attack cells
     public void ClearAttackMarkers()
     {
         foreach (GameObject marker in attackMarkers)
@@ -105,10 +75,5 @@ public class TileSelector : MonoBehaviour
             Destroy(marker);
         }
         attackMarkers.Clear();
-    }
-
-    public void SetPause(bool paused)
-    {
-        this.paused = paused;
     }
 }

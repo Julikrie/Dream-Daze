@@ -22,7 +22,7 @@ public class MovementWorld : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
-        // Diagonal Movement same speed as in Y an X direction
+        // Diagonal Movement same speed as in Y and X direction
         movement = movement.normalized;
 
         if (movement.x < 0)

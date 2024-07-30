@@ -38,7 +38,6 @@ public class ActionUIManager : MonoBehaviour
     {
         if (character != null && character.characterStateMachine != null)
         {
-            Debug.Log("Ich habe Move geklickt");
             SetCanvasActive(false);
             character.characterStateMachine.ChangeState(CharacterState.Move);
         }
@@ -48,7 +47,6 @@ public class ActionUIManager : MonoBehaviour
     {
         if (character != null && character.characterStateMachine != null)
         {
-            Debug.Log("Ich habe Attack geklickt");
             SetCanvasActive(false);
             character.characterStateMachine.ChangeState(CharacterState.Attack);
         }
@@ -95,8 +93,6 @@ public class ActionUIManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Ich klicke rechtsklick");
-
             SetCanvasActive(true);
             TileSelector.Instance.ClearAttackMarkers();
             TileSelector.Instance.ClearMovementMarkers();

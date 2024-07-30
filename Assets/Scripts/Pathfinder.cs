@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 
 public class Pathfinder : MonoBehaviour
 {
     public static Pathfinder Instance {get; private set;}
     private void Awake()
-    {   // Destroy Pathfinder GameObjects if there is already one, otherwise create it
+    {   
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -65,7 +64,6 @@ public class Pathfinder : MonoBehaviour
             }
         }
         // return empty Path if not reachable
-        Debug.Log("bin hier");
         return new List<GridCell>();
     }
 

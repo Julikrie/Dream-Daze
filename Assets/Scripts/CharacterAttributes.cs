@@ -9,8 +9,6 @@ public class CharacterAttributes : ScriptableObject
     public string characterClass;
     public CharacterType characterType;
 
-    //  public Sprite characterSprite;
-
     public int maxHealth;
     public int currentHealth;
     public int maxMana;

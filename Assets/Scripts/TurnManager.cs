@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour
 {
@@ -90,8 +87,8 @@ public class TurnManager : MonoBehaviour
         {
             currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
         }
-
-        Debug.Log($"Nächster Charakter {currentCharacterIndex}");
+        
+        //Set next character in array to active
         SetActiveCharacter(currentCharacterIndex);
     }
 
@@ -107,13 +104,11 @@ public class TurnManager : MonoBehaviour
 
             GameManager.Instance.CheckBattleEnded();
 
-
             if (GameManager.Instance.isGameOver)
             {
                 return;
             }
 
-            // If the character being removed is the current character, call characterFinished
             if (characterIndex == currentCharacterIndex)
             {
                 CharacterFinished();

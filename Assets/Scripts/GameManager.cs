@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Cursor.visible = true;
-
         pauseMenu.SetActive(false);
     }
 
@@ -43,14 +42,12 @@ public class GameManager : MonoBehaviour
         {
             if (TeamManager.Instance.playerTeam.Count == 0)
             {
-                Debug.Log("You LOST");
                 isGameOver = true;
                 ActionUIManager.Instance.SetCanvasActive(false);
                 pauseMenu.SetActive(true);
             }
             else if (TeamManager.Instance.enemyTeam.Count == 0)
             {
-                Debug.Log("You WIN");
                 isGameOver = true;
                 ActionUIManager.Instance.SetCanvasActive(false);
                 StartCoroutine(UnlockNewSkillPage());

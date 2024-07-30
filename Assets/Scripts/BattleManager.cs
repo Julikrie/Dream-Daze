@@ -17,7 +17,7 @@ public class BattleManager : MonoBehaviour
     private Vector2 enemyOldPosition;
     private GameObject player;
     private GameObject enemy;
-    bool playerStarts;
+    private bool playerStarts;
     BattleState currentState = BattleState.Start;
 
     private void Awake()
@@ -38,8 +38,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerTurn()
     {
         battleHUD.SetButtonsContainer(true);
-        Debug.Log($"Is player dead? {this.enemy.GetComponent<Character>().isDead}");
-        //Wenn Spieler Dead, beenden und nach dem Kampf Player charakter löschen
+        //If player dies battle ends and character will be removed
         if (this.player.GetComponent<Character>().isDead)
         {
             ChangeState(BattleState.End);
@@ -47,8 +46,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            //TODO: PlayerBuffs/Debuffs runterzählen und entfernen
-            Debug.Log("PLAYER TURN");
             yield return new WaitForSeconds(1f);
         }
     }
@@ -59,8 +56,8 @@ public class BattleManager : MonoBehaviour
 
         Character enemyCharacter = this.enemy.GetComponent<Character>();
         Character playerCharacter = this.player.GetComponent<Character>();
-        Debug.Log($"Is enemy dead? {this.enemy.GetComponent<Character>().isDead}");
-        //Wenn Enemy Dead, beenden und Player charakter löschen
+
+        //If enemy dies battle ends and character will be removed
         yield return new WaitForSeconds(2f);
         if (this.enemy.GetComponent<Character>().isDead)
         {
@@ -69,17 +66,14 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("ENEMY TURN");
             enemyCharacter.BasicAttack(playerCharacter);
             yield return new WaitForSeconds(2f);
-            //TODO: EnemyBuffs/Debuffs runterzählen und entfernen
             ChangeState(BattleState.PlayerTurn);
             StartCoroutine(PlayerTurn());
         }
     }
     public void InitiateBattle(GameObject attacker, GameObject defender, Action onBattleOver = null)
     {
-        //TileSelector.Instance.SetPause(true);
         ActionUIManager.Instance.SetPause(true);
         IsBattleOngoing = true;
         playerStarts = TeamManager.Instance.IsPlayerCharacter(attacker.GetComponent<Character>());
@@ -105,15 +99,13 @@ public class BattleManager : MonoBehaviour
         battleHUD.SetCanvasActive(false);
         ReturnCharactersFromBattle(player, playerOldPosition);
         ReturnCharactersFromBattle(enemy, enemyOldPosition);
-        // TileSelector.Instance.SetPause(false);
+
         ActionUIManager.Instance.SetPause(false);
         onBattleOver?.Invoke();
         onBattleOver = null;
         if (defeatedCharacter != null)
         {
             Destroy(defeatedCharacter);
-            //TODO: Bei Aufruf Charakter aus TeamManager, TurnManager und Grid entfernen, dann GameObject löschen
-            //Destroy(defeatedCharacter); // Oder auf Board DeathAnimation abspielen dann entfernen z.b. mit defeatedCharacter.defeated()
         }
     }
     private void DetermineStartCharacter()
