@@ -44,8 +44,6 @@ public class TeamManager : MonoBehaviour
 
     public void RemoveCharacter(Character character)
     {
-        Debug.Log("Character was removed");
-
         if( IsEnemyCharacter(character))
         {
             enemyTeam.Remove(character);

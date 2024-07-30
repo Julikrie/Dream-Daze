@@ -8,7 +8,6 @@ public enum AttackState
     Selection,
     Attack,
     Finished,
-    Idle
 }
 
 public class AttackStateMachine
@@ -89,9 +88,6 @@ public class AttackStateMachine
                 FinishedPlayer.Invoke();
                 ChangeState(AttackState.Selection);
                 break;
-
-            case AttackState.Idle:
-                break;
         }
     }
 
@@ -130,9 +126,6 @@ public class AttackStateMachine
                 yield return new WaitForSeconds(0.5f);
                 FinishedAI.Invoke();
                 ChangeState(AttackState.Selection);
-                break;
-
-            case AttackState.Idle:
                 break;
         }
     }
