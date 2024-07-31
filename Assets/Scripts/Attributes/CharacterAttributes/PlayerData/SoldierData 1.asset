@@ -16,7 +16,7 @@ MonoBehaviour:
   characterClass: Soldier
   characterType: 0
   maxHealth: 29
-  currentHealth: -15
+  currentHealth: 29
   maxMana: 8
   currentMana: 8
   abilities:

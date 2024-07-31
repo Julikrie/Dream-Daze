@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 88712464}
   - component: {fileID: 88712463}
   m_Layer: 0
-  m_Name: GlobalLight (5)
+  m_Name: PoisonGlow_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6684,7 +6684,7 @@ GameObject:
   - component: {fileID: 379599820}
   - component: {fileID: 379599819}
   m_Layer: 0
-  m_Name: GlobalLight (2)
+  m_Name: PoisonGlow_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7413,7 +7413,7 @@ GameObject:
   - component: {fileID: 611925978}
   - component: {fileID: 611925977}
   m_Layer: 0
-  m_Name: GlobalLight (8)
+  m_Name: PoisonGlow_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7497,7 +7497,7 @@ GameObject:
   - component: {fileID: 617725660}
   - component: {fileID: 617725661}
   m_Layer: 0
-  m_Name: GlobalLight (2)
+  m_Name: PoisonGlow_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7582,7 +7582,7 @@ GameObject:
   - component: {fileID: 658948434}
   - component: {fileID: 658948433}
   m_Layer: 0
-  m_Name: GlobalLight (11)
+  m_Name: PoisonGlow_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8544,88 +8544,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &867511331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 867511333}
-  - component: {fileID: 867511332}
-  m_Layer: 0
-  m_Name: GlobalLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &867511332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867511331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_LightType: 1
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 0.22208682, g: 0.09162514, b: 0.2735849, a: 1}
-  m_Intensity: 0.7
-  m_LightVolumeIntensity: 0.2
-  m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 0
-  m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 1.4767494, y: 0.8650999, z: 0}
-    m_Extent: {x: 40.67225, y: 24.0248, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 4
-  m_PointLightOuterRadius: 200
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -32.634586, y: -18.15939, z: 0}
-  - {x: 34.3329, y: -17.096724, z: 0}
-  - {x: 37.15056, y: 19.889183, z: 0}
-  - {x: -34.195663, y: 19.606537, z: 0}
---- !u!4 &867511333
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867511331}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1281748, y: -1.7651393, z: -4.4807143}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1079961319}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899950150
 GameObject:
   m_ObjectHideFlags: 0
@@ -8637,7 +8555,7 @@ GameObject:
   - component: {fileID: 899950152}
   - component: {fileID: 899950151}
   m_Layer: 0
-  m_Name: GlobalLight (7)
+  m_Name: PoisonGlow_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8926,7 +8844,7 @@ GameObject:
   - component: {fileID: 1034812471}
   - component: {fileID: 1034812470}
   m_Layer: 0
-  m_Name: GlobalLight (9)
+  m_Name: PoisonGlow_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9195,11 +9113,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 539690971}
-  - {fileID: 867511333}
+  - {fileID: 1699088363}
+  - {fileID: 816923845}
   - {fileID: 2106409507}
   - {fileID: 617725660}
   - {fileID: 1602064663}
-  - {fileID: 816923845}
   - {fileID: 1577684423}
   - {fileID: 379599820}
   - {fileID: 2082558150}
@@ -10594,7 +10512,7 @@ GameObject:
   - component: {fileID: 1449561827}
   - component: {fileID: 1449561826}
   m_Layer: 0
-  m_Name: GlobalLight (10)
+  m_Name: PoisonGlow_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10780,7 +10698,7 @@ GameObject:
   - component: {fileID: 1473755031}
   - component: {fileID: 1473755030}
   m_Layer: 0
-  m_Name: GlobalLight (6)
+  m_Name: PoisonGlow_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11406,7 +11324,7 @@ GameObject:
   - component: {fileID: 1577684423}
   - component: {fileID: 1577684422}
   m_Layer: 0
-  m_Name: GlobalLight (1)
+  m_Name: PoisonGlow_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11572,7 +11490,7 @@ GameObject:
   - component: {fileID: 1602064663}
   - component: {fileID: 1602064664}
   m_Layer: 0
-  m_Name: GlobalLight (3)
+  m_Name: PoisonGlow_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11923,6 +11841,88 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1699088362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699088363}
+  - component: {fileID: 1699088364}
+  m_Layer: 0
+  m_Name: GlobalLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1699088363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699088362}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1281748, y: -1.7651393, z: -4.4807143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1079961319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699088364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699088362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.22208682, g: 0.09162514, b: 0.2735849, a: 1}
+  m_Intensity: 0.7
+  m_LightVolumeIntensity: 0.2
+  m_LightVolumeIntensityEnabled: 1
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 1
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 0
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0.086949825, y: 1.4461999, z: 0}
+    m_Extent: {x: 16.04015, y: 10.572201, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 4
+  m_PointLightOuterRadius: 200
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -10.954483, y: -4.1086473, z: 0}
+  - {x: 11.126923, y: -4.126807, z: 0}
+  - {x: 11.083572, y: 6.9828434, z: 0}
+  - {x: -10.735371, y: 7.0180883, z: 0}
 --- !u!1 &1700832106
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,7 +12478,7 @@ GameObject:
   - component: {fileID: 1755565442}
   - component: {fileID: 1755565441}
   m_Layer: 0
-  m_Name: GlobalLight (4)
+  m_Name: PoisonGlow_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16950,7 +16950,7 @@ GameObject:
   - component: {fileID: 2082558150}
   - component: {fileID: 2082558149}
   m_Layer: 0
-  m_Name: GlobalLight (3)
+  m_Name: PoisonGlow_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17167,7 +17167,7 @@ GameObject:
   - component: {fileID: 2106409507}
   - component: {fileID: 2106409508}
   m_Layer: 0
-  m_Name: GlobalLight (1)
+  m_Name: PoisonGlow_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

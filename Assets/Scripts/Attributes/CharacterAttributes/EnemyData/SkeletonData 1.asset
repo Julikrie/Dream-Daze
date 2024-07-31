@@ -16,7 +16,7 @@ MonoBehaviour:
   characterClass: Enemy
   characterType: 2
   maxHealth: 24
-  currentHealth: -2
+  currentHealth: 24
   maxMana: 16
   currentMana: 16
   abilities: []
