@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("StartCutScene");
